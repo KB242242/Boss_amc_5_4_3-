@@ -1,0 +1,130 @@
+#	module 	1-commercial
+#	section 400-clients
+#   node    clients
+#   lang    fr
+#	refNode	1_400_0
+#   fichier clients_fr.yaml
+message_system:
+    #--------------------------------------------------
+    #crud edit
+    warning_0_0:    "Accès à la vue client refusé"
+    warning_1_0:    "Erreur appel routeur refNode: "
+    #--------------------------------------------------
+    #crud modif
+    notice_modif_0_0:     "Le formulaire a été enregistré"
+    warning_modif_0_0:    " Erreur entite User.php identifiant "
+    warning_modif_1_0:    " Erreur d'enregistrement du formulaire"
+    #--------------------------------------------------
+pageParent:
+    #menu page
+    mnu_1:          "Menu principal"
+    mnu_1_100_0:    "Contacts client"
+    mnu_disconnect: "Déconnexion"
+    #titres et commentaire
+    txt_1_0:        "Gestion des clients"
+    txt_2_0:        ""
+    txt_3_0:        "Commentaires"
+    txt_4_0:        "This will create a button with a rounded shape. You can also add additional classes to customize the appearance of the button, such as `btn-round-lg` for a larger size or ..."
+    
+    #commandes 
+        #5 Boutons outillage
+    txt_bt_1:       "GED"
+    txt_bt_2:       "Courrier Notes"
+    txt_bt_3:       "Activite"
+    txt_bt_4:       "KPI"
+    txt_bt_5:       "Notifications" 
+
+        #8-1-cmdeConnexPage 
+    txt_bt_6:       "Selectionner un client"
+    txt_bt_7:       "client tres foo"
+        #8-2-cmdeContextGenePage 
+    txt_bt_8:       "Ajouter un client"
+        #8-3-cmdeContextParticulierPage
+    txt_bt_9:       "Modifier un client"
+    txt_bt_10:      "Supprimer un client"
+    txt_bt_11:      "Complements selection"
+    txt_bt_12:      "Valider la selection"
+pageSelect:
+    #titres et commentaire
+    txt_1_0:        "Selectionner un client"
+pageFormulaire:
+    #titre et commentaires
+    txt_trt_1:  "Nouveau Formulaire de modification client"
+    txt_trt_2:  ""
+    txt_trt_3:  "Commentaires"
+    txt_comm_0: " Salut un je suis un simple commentaire texte"
+
+    #Listes de choix pays
+    lst_1_0: "Congo Brazzaville"
+    lst_1_1: "France"
+    lst_1_2: "Cameroun"
+    lst_1_3: "!"
+    #Listes de choix identifiant
+    # .........
+    lst_2_0: "Siret"
+    lst_2_1: "NIU"
+
+  #Listes de choix LiensCommerciaux
+    lst_3_0: "Aucun"
+    lst_3_1: "Client"
+    lst_3_2: "Fournisseur"
+    lst_3_3: "Client & Fournisseur"
+
+    # Labels du formulaire
+    frm_1_0: "Client"
+    frm_help_warn_1_0: "*****"
+    frm_help_not_1_0: "*****"
+    frm_2_0: "Ville"
+    frm_help_warn_2_0: "*****"
+    frm_help_not_2_0: "*****"
+    frm_3_0: "Pays"
+    frm_help_warn_3_0: "*****"
+    frm_help_not_3_0: "*****"
+    frm_4_0: "Addresse postale"
+    frm_help_warn_4_0: "*****"
+    frm_help_not_4_0: "*****"
+    frm_5_0: "Site internet"
+    frm_help_warn_5_0: "*****"
+    frm_help_not_5_0: "*****"
+    frm_6_0: "Statuts de l'entreprise"
+    frm_help_warn_6_0: "*****"
+    frm_help_not_6_0: "*****"
+    frm_7_0: "Nom de l'identitiant unique"
+    frm_help_warn_7_0: "*****"
+    frm_help_not_7_0: "*****"
+    frm_8_0: "Identitiant unique"
+    frm_help_warn_8_0: "*****"
+    frm_help_not_8_0: "*****"
+    frm_9_0: "Activité de l'entreprise"
+    frm_help_warn_9_0: "*****"
+    frm_help_not_9_0: "*****"
+    frm_10_0: "Rapport commerciaux"
+    frm_help_warn_10_0: "*****"
+    frm_help_not_10_0: "*****"
+    frm_11_0: "Remarques"
+    frm_obligatoire: "Obligatoire"
+    #Commandes du formulaire
+    txt_submit: "Enregistrer"
+    txt_cancel: "Annuler"
+
+
+cols_dataTable:
+    #comumns datatable
+    txt_col_1:      "Ref"
+    txt_col_2:      "Nom"
+    txt_col_3:      "Adresse postale"
+    txt_col_4:      "Ville"
+    txt_col_5:      "Pays"
+    txt_col_6:      "Site internet"
+    txt_col_7:      "NIU"
+    txt_col_8:      "Importance"
+    txt_col_9:      "Remarques"
+
+
+
+
+
+
+
+
+

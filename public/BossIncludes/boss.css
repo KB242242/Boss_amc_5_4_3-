@@ -1,0 +1,66 @@
+ .navbar-brand {padding:0px;} 
+ .selection-table{
+    background-color: blue;
+    color: white;
+    font-family:Verdana;
+    font-style: normal ;
+    font-size:medium  ;}
+.commentaire{
+    font-family:Verdana;
+    font-style: normal ;
+    font-size:large  ;
+    }
+.bordure_yellow {
+	border-style:solid;
+	border-color:yellow;
+ }
+ p{ border-style:none;
+	border-color:green;
+	 width:350px;
+	 margin-top:0px;
+	 margin-left:100px;
+	 text-align: justify;
+	 padding: px;
+	 margin-bottom: 0px;
+	 }
+h1{
+	border-style:solid;
+	border-color:yellow;
+	margin-top:0px;
+	margin-bottom: 0px;
+	padding: 0px;
+}
+ .section_1{
+	border-style:solid;
+	border-color:red;
+	width:600px;
+	 margin:auto;
+	 text-align: justify;
+	 padding: 0px;
+	 margin-bottom: 120px;
+ }
+ /*-------------------------------------------*/
+.bosstitre{
+	color:#000080;
+	
+}
+.bosstitre2{
+	color:#000080;
+	
+}
+.bossalarme{
+	color:#FF0000;
+}
+.bossselection{
+	color:#9932CC;
+}
+.bosstableauBord{
+	color:#000080;
+}
+.bosscadre{
+	color:#000080;
+}
+ .tableHeader{
+	 margin-top:12px;
+	 background-color: Lavender  ;
+ }

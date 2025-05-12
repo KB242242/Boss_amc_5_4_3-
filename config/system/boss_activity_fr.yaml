@@ -1,0 +1,177 @@
+#	module 	0-system
+#	section 000-communs
+#   node    boss_structure_fr.yaml
+#   lang    fr
+#	refNode	20_000_5
+
+module_*1:
+    nom_module: "Commercial"  
+    section_*1_1:      "GRC"
+
+    section_*1_2:      "Marketing"
+    section_*1_3:      "Affaires"
+    entite_*1_3:
+    node_*1_3_1: 
+            nom: "affaire"
+            ref: "1_100_0"
+            user_doc: ""
+            tech_doc: ""
+    #...........
+    node_*1_3_6:
+        nom: "clients"
+        ref: "1_400_0"
+        user_doc: ""
+        tech_doc: ""
+    #...........
+    section_*1_4:      ""
+
+module_*2:   
+    nom_module: "Opérations"
+    section_*2_1:               "Atelier"
+    section_*2_1_1:                  "Pompes centrifuges"
+    service_*2_1_1_1:                      "Revision periodique 80000 h"
+    tache_*2_1_1_1_1:                              "reception en atelier tache 1, file_attente ( soit cle file d'attente,soit vide "
+    tache_*2_1_1_1_2:                              "reception en atelier tache 2"
+
+    section_*2_1_2:                  "Equilibrage"
+    file_attente_*2_1_2:                 "File attente equilibrage" 
+    service_*2_1_2_1:                      "Revision periodique 80000 h"
+    tache_*2_1_2_1_1:                              "tache_1" 
+    machine_*2_1_2_1_1:                    "Equilibreuse 1"
+    piece_*2_1_2_1_1_1:                      "moteur electrique" 
+    
+    section_*2_1_3:                  "Metrologie"
+    outillage_*2_1_3_1:                  "materiel prise de vibration -1"
+    section_*2_1_4:                  "Equilibrage"   
+    section_*2_1_5:                  "Atelier garnitures pompes"
+    section_*2_1_6:                  "Hydraulique"
+    section_*2_1_7:                  "Flexible hydraulique"
+    section_*2_1_8:                  "Metallerie"
+    section_*2_1_8_1:                  "Chaudronnerie"   
+    section_*2_1_8_2:                  "Soudure"
+
+    section_*2_1_8_3:                  "Peinture sablage"
+    section_*2_1_8_4:                  ""
+    section_*2_1_9:                  "Usinage"
+    section_*2_1_9_1:                  "Fraisage"
+    
+    section_*2_1_9_2:                  "Tournage"
+    service_*2_1_9_2_1:                          "Tournage_piece_acier_neuve"
+    tache_*2_1_9_2_1_1:                              "Execution_piece_acier_neuve" 
+                                                        # OT Standard
+                                                        # "Lecture et comprhension de l'ordre de travail"
+                                                        # "Réglage Tour"
+                                                        # "Découpe métal"
+                                                        # "Tournage"
+                                                        # "Métrologie"  
+                                                        # "Controle qualité"
+
+    section_*2_1_9_3:                  "Découpe"
+    section_*2_1_9_4:                  "Ajustage"
+    section_*2_1_9_5:                  ""
+    section_*2_1_10:                  ""
+    #----
+    section_*2_2:                  "Interventions exterieures"
+    section_*2_3:                   "Ventes articles magasin"
+    section_*2_4:           ""
+
+module_*3:
+    nom_module: "Services Généraux Matériel"
+    section_*3_1:              "Maintenance"
+    section_*3_1_1:              "Maintenance production"
+    service_3_1_1_1:                          "Entretien fraiseuse_1"
+    tache_3_1_1_1_1:                                "Entretien journalier"
+    tache_3_1_1_1_2:                                "Entretien hebdomadaire"
+    tache_3_1_1_1_3:                                "Entretien mensuel"
+    tache_3_1_1_1_4:                                "Entretien annuel"
+ 
+    section_*3_1_2:              "Maintenance  bâtiments et infrastructures"
+    section_*3_1_3:              "Maintenance véhicules, bus, camions, engins"
+    section_*3_1_4:              "Maintenance mécanique"
+    section_*3_1_5:              "Maintenance elec. instrum."
+    section_*3_1_6:              ""
+    section_*3_2:      "Projets et travaux neufs"
+    section_*3_3:      "Logistique"
+    section_*3_4:      "" 
+
+module_*4: 
+    nom_module: "Approvisionnement et gestion des stocks"
+    section_*4_1:      "Besoins"   
+    section_*4_2:      "Magasin stock"
+    service_4_2_1:            "Inventaire periodique"
+
+
+module_*5:
+    nom_module: "Achats"
+    section_*5_1:       "Demandes prix et délais"
+    section_*5_2:       "Commandes"
+    section_*5_3:       "Receptions commandes"
+    section_*5_4:       "Gestion des Fournisseurs"
+    section_*5_5:       ""
+
+module_*6: 
+    nom_module: "Administratif"
+    section_*6_1:      "Courrier"
+    section_*6_1_1:             "Courrier arrivé"
+    section_*6_1_2:             "Courrier départ"
+    section_*6_1_3:             "Annuaire entreprises"   
+    section_*6_1_4:              "Annuaire particulier"  
+    section_*6_1_5:              ""
+    section_*6_2:      "Notes de service"
+
+    section_*6_3:      "Documentation"
+    section_*6_3_1:              "Doc. operationnelle"
+    section_*6_3_2:             "Doc. fonctionnelle"
+    section_*6_3_3:             ""
+
+    section_*6_4:       "Assurances"
+    section_*6_5:       "Baux"
+    section_*6_6:       "Litiges" 
+    section_*6_7:       ""   
+  
+module_*7: 
+    nom_module: "Ressources Humaines (DRH)"
+    section_*7_1:      "Liste personnel"
+    section_*7_2:      "Evaluation du personnel"
+    section_*7_3:      "Formation"
+    section_*7_4:      ""   
+
+module_*8:
+    nom_module: "Finance"
+    section_*8_1: ""
+    
+    module_*9: "Qualité"
+    section_*9_1: ""
+    #---- 
+    module_*10: "Systeme informatique"
+    section_*10_1: ""
+
+module_*20:
+    nom_module: "GED"
+    section_*20_1: "menu_principal"
+    node_*20_1_1:
+        nom: "reserve_document"
+        ref: "20_110_0"
+        user_doc: ""
+        tech_doc: ""
+    node_*20_1_2:
+        nom: "enregistre_document"
+        ref: "20_120_0"
+        user_doc: ""
+        tech_doc: ""
+    node_*20_1_3:
+        nom: "recherche_document"
+        ref: "20_130_0"
+        user_doc: ""
+        tech_doc: ""
+        user_doc: ""
+        tech_doc: ""
+        #...........
+module_*30:
+    nom_module: "Activité"
+    section_*30_1: "Taches"
+    node_*30_1_1:
+        nom: "taches"
+        ref: "30_100_0"
+        user_doc: ""
+        tech_doc: ""

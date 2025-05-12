@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!----------------------------0-Includes---------------------------------->
+		<title>Boss</title>
+		{% block includes %}
+			{% include 'partials/includes.html.twig' %}
+		{% endblock %}
+		<!--0-Includes Boss -->
+		<script type='text/javascript' language='javascript' src='../BossJs/ged/enregistre_documents_form.js'></script>
+		<script type='text/javascript' language='javascript' src='../BossJs/system/js_utilities.js'></script>
+		<script type='text/javascript' language='javascript' src='../BossJs/system/js_variables_globales_std.js'></script>
+		<!--script type='text/javascript' language='javascript' src='../BossIncludes/controle_saisies.js'></script-->
+	</head>
+	<body>
+		<!----------------------------1-Variables js---------------------------------->
+		<input type="hidden" id="routeRouteur" value="{{path('system_routeur')}}"/>
+		<input type="hidden" id="nodeCourant" value="{{nodeCourant}}">
+		<input type="hidden" id="timeOut" value="{{configNode['timeOutPage']}}"/>
+		<input type="hidden" id="contraintesChamps" value="{{contraintes_champs_json}}"/>
+
+		<div class="container">
+		<!-------------------- 2-Notifications -------------------------->
+		{% if notificationsWarning|length > 0  or notificationsNotice|length > 0%}
+			<div id="notification_msg" style="border:solid ; color:WhiteSmoke; ">											
+					{% for warning in  notificationsWarning %}
+						<p class="mb-0" style=" color: red">-{{warning}}</p>
+					{% endfor %}
+					{% for notice in  notificationsNotice %}
+						<p class="mb-0" style=" color: blue">-{{notice}}</p>
+					{% endfor %}
+		
+			</div>
+		{% endif %}
+		<!----------------------------3-Loader------------------------------------>
+		<div id="loader" class="ld ld-ring ld-spin"></div>
+		<!-------------------- 4-Titre et commentaires -------------------------->
+			<h2 id="titre">	<strong>{{titre}}</strong> </h2>
+			<h3 id="titre">{{configNode["sousTitre"]}}</h3>
+
+			<div style="background-color:#F4F6F6;">
+				<h4> {{configNode["commentaireTitre"]}} </h4>
+				<h5 id="commentaire" style="font: font: italic 1.2rem 'Fira Sans', serif;">{{configNode["commentaire"]}}
+				</h5>
+			</div>
+
+			<div>
+				<p id="alarme"></p>
+			</div>
+			<!----------------------------4-boutons outillage------------------>
+	
+			<!-------------------- 5-Commandes ------------------------->
+
+			<!--------------------6-Declaration formulaire ------------------------->
+		
+			<!--form
+				id="myform" action="" method="post" name="form"-->
+	<div class="container">
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }} {# Début du formulaire Symfony #}
+
+        <hr align="center" size="1" width='99%' style='padding-left:2px; margin-top:2px;margin-bottom:2px;border-top: 1px solid #2e2c2c;'>
+        <hr align="center" size="1" width='99%' style='margin-top:2px;margin-bottom:2px;border-top: 1px solid #2e2c2c;'>
+
+        <button id="submit" class="pull-left btn btn-primary" style="margin-bottom:5px;margin-left:5px;border-radius: 10%;">{{ txtLang_texte_Form['txt_submit'] }}</button>
+        <button id="retour" class="pull-left btn btn-secondary" style="margin-bottom:5px;margin-left:5px;border-radius: 10%;">{{ txtLang_texte_Form['txt_cancel'] }}</button>
+
+        <div class="form-group row"> {# Groupe pour le champ titre #}
+            {{ form_label(form.titre, txtLang_texte_Form['frm_1_0'], {'label_attr': {'class': 'col-sm-4 col-form-label'}}) }}
+            <div class="col-sm-8">
+                {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.titre) }} {# Affichage des erreurs #}
+            </div>
+        </div>
+      
+        <div class="form-group row"> {# Groupe pour le champ gisement #}
+            {{ form_label(form.gisement, txtLang_texte_Form['frm_3_0'], {'label_attr': {'class': 'col-sm-4 col-form-label'}}) }}
+            <div class="col-sm-8">
+                {{ form_widget(form.gisement, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.gisement) }}
+            </div>
+        </div>
+
+        <div class="form-group row"> {# Groupe pour le champ dossier #}
+            {{ form_label(form.dossier, txtLang_texte_Form['frm_4_0'], {'label_attr': {'class': 'col-sm-4 col-form-label'}}) }}
+            <div class="col-sm-8">
+                {{ form_widget(form.dossier, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.dossier) }}
+
+                <button id="select_down" class="btn btn-secondary" style="margin-left: 5px;margin-bottom: 5px;">&#8595;</button>
+                <button id="select_up" class="btn btn-secondary" style="margin-left: 5px;margin-bottom: 5px;">&#8593;</button>
+                <label for="champ_4_select" style="width: 100%;">{{ txtLang_texte_Form['frm_4_1'] }}</label>
+                <p id="dossier_select" style="width: 100%;color: blue"></p>
+            </div>
+        </div>
+
+        <div class="form-group row"> {# Groupe pour le champ mots_cles #}
+            {{ form_label(form.mots_cles, txtLang_texte_Form['frm_7_0'], {'label_attr': {'class': 'col-sm-4 col-form-label'}}) }}
+            <div class="col-sm-8">
+                {{ form_widget(form.mots_cles, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.mots_cles) }}
+            </div>
+        </div>
+
+        <div class="form-group row"> {# Groupe pour le champ rem #}
+            {{ form_label(form.rem, txtLang_texte_Form['frm_8_0'], {'label_attr': {'class': 'col-sm-4 col-form-label'}}) }}
+            <div class="col-sm-8">
+                {{ form_widget(form.rem, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.rem) }}
+            </div>
+        </div>
+
+    {{ form_end(form) }} {# Fin du formulaire Symfony #}
+</div>
+
+		</div>
+	</body>
+</html>

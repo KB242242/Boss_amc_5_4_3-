@@ -1,0 +1,7 @@
+               function encodeChaine(chaine,A,B){
+                   var retour ="";
+                   for (var i=0; i<chaine.length; i++) {
+                        retour += ((chaine.charCodeAt(i)*A)+B)+ ' ';
+                    }
+                    return retour;
+               }

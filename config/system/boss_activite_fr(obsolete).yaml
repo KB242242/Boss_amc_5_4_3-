@@ -1,0 +1,145 @@
+#	module 	0-system
+#	section 000-communs
+#   node    boss_activite_fr.yaml
+#   lang    fr
+#	refNode	20_000_5
+
+message_system:
+    notice_0_0:     ""
+    warning_0_0:    ""
+texte_menu:
+    mnu_1:          ""
+    mnu_disconnect: "Déconnexion" 
+
+texte_page:
+    #texte page
+    txt_1_0:        ""
+    #label boutons
+        #outillage
+    txt_bt_1_1:       ""
+        #commandes 
+            #8-1-cmdeConnexPage 
+    txt_bt_2_1:       ""
+             #8-2-cmdeContextGenePage 
+    txt_bt_3_1:       ""
+            #8-3-cmdeContextParticulierPage
+    txt_bt_4_1:       ""
+    #label input
+    txt_input_1:       ""
+
+texte_cols_dataTable:
+    #comumns datatable
+    txt_col_1:      ""    
+       
+graphe_node:
+    module_1:              "Commercial"  
+    section_1_1:      "GRC"
+
+    section_1_2:      "Marketing"
+    section_1_3:      "Affaires"
+    section_1_4:      ""
+
+    module_2:              "Opérations"   
+    section_2_1:               "Atelier"
+    section_2_1_1:                  "Pompes centrifuges"
+    section_2_1_2:                  "Analyse vibratoire"
+    section_2_1_3:                  "Metrologie"
+    section_2_1_4:                  "Equilibrage"   
+    section_2_1_5:                  "Atelier garnitures pompes"
+    section_2_1_6:                  "Hydraulique"
+    section_2_1_7:                  "Flexible hydraulique"
+    section_2_1_8:                  "Metallerie"
+    section_2_1_8_1:                  "Chaudronnerie"   
+    section_2_1_8_2:                  "Soudure"
+    section_2_1_8_3:                  "Peinture sablage"
+    section_2_1_8_4:                  ""
+    section_2_1_9:                  "Usinage"
+    section_2_1_9_1:                  "Fraisage"
+    
+    section_2_1_9_2:                  "Tournage"
+    service_2_1_9_2_1:                          "Tournage_piece_acier_neuve"
+    tache_2_1_9_2_1_1:                              "Execution_piece_acier_neuve" 
+                                                        # OT Standard
+                                                        # "Lecture et comprhension de l'ordre de travail"
+                                                        # "Réglage Tour"
+                                                        # "Découpe métal"
+                                                        # "Tournage"
+                                                        # "Métrologie"  
+                                                        # "Controle qualité"
+
+    section_2_1_9_3:                  "Découpe"
+    section_2_1_9_4:                  "Ajustage"
+    section_2_1_9_5:                  ""
+    section_2_1_10:                  ""
+    #----
+    section_2_2:                  "Interventions exterieures"
+    section_2_3:          "Ventes articles magasin"
+    section_2_4:           ""
+
+    module_3:              "Services Généraux Matériel"   
+    section_3_1:              "Maintenance"
+    section_3_1_1:              "Maintenance production"
+
+    service_3_1_1_1:                          "Entretien fraiseuse_1"
+    tache_3_1_1_1_1:                                "Entretien journalier"
+    tache_3_1_1_1_2:                                "Entretien hebdomadaire"
+    tache_3_1_1_1_3:                                "Entretien mensuel"
+    tache_3_1_1_1_4:                                "Entretien annuel"
+ 
+    section_3_1_2:              "Maintenance  bâtiments et infrastructures"
+    section_3_1_3:              "Maintenance véhicules, bus, camions, engins"
+    section_3_1_4:              "Maintenance mécanique"
+    section_3_1_5:              "Maintenance elec. instrum."
+    section_3_1_6:              ""
+    section_3_2:      "Projets et travaux neufs"
+    section_3_3:      "Logistique"
+    section_3_4:      "" 
+
+    module_4: "Approvisionnement et gestion des stocks"
+    section_4_1:      "Besoins"   
+    section_4_2:      "Magasin stock"
+    section_4_3:      ""
+
+    module_5: "Achats"
+    section_5_1:       "Demandes prix et délais"
+    section_5_2:       "Commandes"
+    section_5_3:       "Receptions commandes"
+    section_5_4:       "Gestion des Fournisseurs"
+    section_5_5:       ""
+
+    module_6: "Administratif"
+    section_6_1:      "Courrier"
+    section_6_1_1:             "Courrier arrivé"
+    section_6_1_2:             "Courrier départ"
+    section_6_1_3:             "Annuaire entreprises"   
+    section_6_1_4:              "Annuaire particulier"  
+    section_6_1_5:              ""
+    section_6_2:      "Notes de service"
+
+    section_6_3:      "Documentation"
+    section_6_3_1:              "Doc. operationnelle"
+    section_6_3_2:             "Doc. fonctionnelle"
+    section_6_3_3:             ""
+
+    section_6_4:       "Assurances"
+    section_6_5:       "Baux"
+    section_6_6:       "Litiges" 
+    section_6_7:       ""   
+  
+    module_7: "Ressources Humaines (DRH)"
+    section_7_1:      "Liste personnel"
+    section_7_2:      "Evaluation du personnel"
+    section_7_3:      "Formation"
+    section_7_4:      ""   
+
+    module_8: "Finance"
+    section_8_1: ""
+    
+    module_9: "Qualité"
+    section_9_1: ""
+    #---- 
+    module_10: "Systeme informatique"
+    section_10_1: ""
+
+ 
+

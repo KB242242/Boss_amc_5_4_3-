@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Boss</title>
+		{% block includes %}
+			{% include 'partials/includes.html.twig' %}
+		{% endblock %}
+		<!---Boss -->
+		<script type='text/javascript' language='javascript' src='../BossJs/system/js_utilities.js'></script>
+		<script type='text/javascript' language='javascript' src='../BossJs/system/js_variables_globales_std.js'></script>
+		<script type="text/javascript" language="javascript" src="../BossJs/system/menu_principal.js"></script>
+	</head>
+	<body>
+		<!-------------------- 1-Variables js --------------------------->
+		<input type="hidden" id="routeRouteur" value="{{path('system_routeur')}}"></>
+		<input type="hidden" id="nodeCourant" value="{{nodeCourant}}"></>
+		<input type="hidden" id="timeOut" value="{{configNode['timeOutPage']}}"></>
+		<!-------------------- 2-Notifications -------------------------->
+		{% if notificationsWarning|length > 0  or notificationsNotice|length > 0%}
+			<div id="notification_msg" style="color:WhiteSmoke; ">
+				{% for warning in  notificationsWarning %}
+					<p class="alert alert-danger" style="width:100%">-{{warning}}</p>
+				{% endfor %}
+				{% for notice in  notificationsNotice %}
+					<p class="alert alert-success" style="width:100%">-{{notice}}</p>
+				{% endfor %}
+			</div>
+		{% endif %}
+		<!----------------------------3-Loader------------------------------------>
+		<div id="loader" class="ld ld-ring ld-spin"></div>
+		<!----------------------------4-Menu--(smart menu)---------------------------------->
+		<!--div class="container"-->
+			<div class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#"><img alt="Brand" src="../BossIncludes/BossIcon.GIF"></a>
+				</div>
+				<!---------------------Elements du menu------------------------>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li>
+							<!--Commercial-->
+							<a href="#">{{configPage['texte_menu']['mnu_1']}}
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<!--Affaires-->
+									<a id="1_100_0" href="#">
+										{{configPage['texte_menu']['mnu_1_100_0']}}
+									</a>
+								</li>
+								<li>
+									<!--Gestion clients-->
+									<a id="1_400_0" href="#">
+										{{configPage['texte_menu']['mnu_1_400_0']}}</a>
+								</li>
+								<li>
+									<!--Contrats clients-->
+									<a id="1_500_0" href="#">
+										{{configPage['texte_menu']['mnu_1_500_0']}}</a>
+								</li>
+								<li>
+									<!--Services - Produits-->
+									<a id="1_600_0" href="#">
+										{{configPage['texte_menu']['mnu_1_600_0']}}</a>
+								</li>
+								<li>
+									<!--Marketing-->
+									<a id="1_700_0" href="#">
+										{{configPage['texte_menu']['mnu_1_700_0']}}</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<!--Opérations-->
+							<a href="#">{{configPage['texte_menu']['mnu_2']}}
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<!--Atelier-->
+									<a id="2_100_0" href="#">
+										{{configPage['texte_menu']['mnu_2_100_0']}}
+									</a>
+								</li>
+								<li>
+									<!--Intervention-->
+									<a id="2_200_0" href="#">
+										{{configPage['texte_menu']['mnu_2_200_0']}}</a>
+								</li>
+	
+							</ul>
+						</li>
+						<li>
+							<!--Services généraux-->
+							<a href="#">{{configPage['texte_menu']['mnu_3']}}
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<!--Maintenance-->
+									<a id="3_100_0" href="#">
+										{{configPage['texte_menu']['mnu_3_100_0']}}
+									</a>
+								</li>
+								<li>
+									<!--Logistique-->
+									<a id="3_200_0" href="#">
+										{{configPage['texte_menu']['mnu_3_200_0']}}</a>
+								</li>
+								<li>
+									<!--Projets Travaux Neufs-->
+									<a id="3_300_0" href="#">
+										{{configPage['texte_menu']['mnu_3_300_0']}}</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<!--Appro-->
+							<a href="#">{{configPage['texte_menu']['mnu_4']}}
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<!--Besoins-->
+									<a id="4_100_0" href="#">
+										{{configPage['texte_menu']['mnu_4_100_0']}}
+									</a>
+								</li>
+								<li>
+									<!--Stock-->
+									<a id="4_200_0" href="#">
+										{{configPage['texte_menu']['mnu_4_200_0']}}</a>
+								</li>
+								<li>
+									<!--Inventaires stock-->
+									<a id="4_300_0" href="#">
+										{{configPage['texte_menu']['mnu_4_300_0']}}</a>
+								</li>
+								<li>
+									<!--Sorties provisoires-->
+									<a id="4_400_0" href="#">
+										{{configPage['texte_menu']['mnu_4_400_0']}}</a>
+								</li>
+
+							</ul>
+						</li>
+						<li>
+							<!--Achats-->
+							<a href="#">{{configPage['texte_menu']['mnu_5']}}
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<!--Achats processus-->
+									<a id="5_100_0" href="#">
+										{{configPage['texte_menu']['mnu_5_100_0']}}
+									</a>
+								</li>
+								<li>
+									<!--Fournisseurs-->
+									<a id="5_200_0" href="#">
+										{{configPage['texte_menu']['mnu_5_200_0']}}</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<!--Personnel-->
+							<a href="#">{{configPage['texte_menu']['mnu_6']}}
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<!--Repertoire personnel-->
+									<a id="6_100_0" href="#">
+										{{configPage['texte_menu']['mnu_6_100_0']}}
+									</a>
+								</li>
+								<li>
+									<!--MPO-->
+									<a id="6_200_0" href="#">
+										{{configPage['texte_menu']['mnu_6_200_0']}}</a>
+								</li>
+								<li>
+									<!--Pointage-->
+									<a id="6_400_0" href="#">
+										{{configPage['texte_menu']['mnu_6_400_0']}}</a>
+								</li>
+								<li>
+									<!--Paye-->
+									<a id="6_500_0" href="#">
+										{{configPage['texte_menu']['mnu_6_500_0']}}</a>
+								</li>
+								<li>
+									<!--Santé-->
+									<a id="6_600_0" href="#">
+										{{configPage['texte_menu']['mnu_6_600_0']}}</a>
+								</li>
+								<li>
+									<!--Congés-->
+									<a id="6_700_0" href="#">
+										{{configPage['texte_menu']['mnu_6_700_0']}}</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<!--Administratif-->
+							<a href="#">{{configPage['texte_menu']['mnu_7']}}
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<!--Pending-->
+									<a id="7_100_0" href="#">
+										{{configPage['texte_menu']['mnu_7_100_0']}}
+									</a>
+								</li>
+
+							</ul>
+						</li>
+						<li>
+							<!--Finance-->
+							<a href="#">{{configPage['texte_menu']['mnu_8']}}
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<!--Budget-->
+									<a id="8_100_0" href="#">
+										{{configPage['texte_menu']['mnu_8_100_0']}}
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<!--Qualité-->
+							<a href="#">{{configPage['texte_menu']['mnu_9']}}
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<!--Processus-->
+									<a id="9_100_0" href="#">
+										{{configPage['texte_menu']['mnu_9_100_0']}}
+									</a>
+								</li>
+								<li>
+									<!--Procédures-->
+									<a id="9_200_0" href="#">
+										{{configPage['texte_menu']['mnu_9_200_0']}}
+									</a>
+								</li>
+								<li>
+									<!--Audits-->
+									<a id="9_300_0" href="#">
+										{{configPage['texte_menu']['mnu_9_300_0']}}
+									</a>
+								</li>
+								<li>
+									<!--"Actions correctives-->
+									<a id="9_400_0" href="#">
+										{{configPage['texte_menu']['mnu_9_400_0']}}
+									</a>
+								</li>
+								<li>
+									<!--Revue de direction-->
+									<a id="9_500_0" href="#">
+										{{configPage['texte_menu']['mnu_9_500_0']}}
+									</a>
+								</li>
+								<li>
+									<!--Revue de processus-->
+									<a id="9_600_0" href="#">
+										{{configPage['texte_menu']['mnu_9_600_0']}}
+									</a>
+								</li>
+								<li>
+									<!--5S-->
+									<a id="9_700_0" href="#">
+										{{configPage['texte_menu']['mnu_9_700_0']}}
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<!--Admin. systeme-->
+							<a href="#">{{configPage['texte_menu']['mnu_10']}}
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<!--Modification mot de passe-->
+									<a id="0_100_3" href="#">
+										{{configPage['texte_menu']['mnu_10_100_0']}}
+									</a>
+								</li>
+							</ul>
+						</li>
+
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a id="disconnect" href="#">
+								DECONNECTION
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!---------------- 5-boutons outillage------------------>
+			<!--div class="container"-->
+				<!---boutons Acces aux outils communs commande groupe A---->
+					<!--div class='row'-->
+					<HR align="center" size="1" width='99%' style='padding-left:2px;  margin-top:2px;margin-bottom:2px;border-top: 1px solid #2e2c2c;'>
+						{% for cmd in cmdeOutils %}
+							<button id={{cmd[0]}} class="btn btn-round btn-icon-only" 
+								style="color:{{cmd[3]}};
+								background-color:{{cmd[4]}};
+								visibility:visible;
+								margin-bottom:5px;margin-left:5px;border-radius: 10%;">
+												{{cmd[5]}}
+							</button>
+						{% endfor %}
+					<HR align="center" size="1" width='99%' style='margin-top:2px;margin-bottom:2px;border-top: 1px solid #2e2c2c;'>
+			</div>
+		<!--/div-->
+	</body>
+</html>

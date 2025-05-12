@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Boss</title>
+		<!---jQuery -->
+		<script src="../BossIncludes/jquery-3.6.0.min.js"></script>
+		<!---Bootstrap -->
+		<link href="../BossIncludes/bootstrap.min.css" rel="stylesheet">
+		<link href="../BossIncludes/boss.css" rel="stylesheet">
+		<!--DataTable-->
+		<!--DataTable--><script src="../BossIncludes/jquery.dataTables.css"> </script>
+		<script src="../BossIncludes/jquery.dataTables.js"></script>
+
+		<!---Boss -->
+		<script type='text/javascript' language='javascript' src='../BossJs/system/js_utilities.js'></script>
+		<script type='text/javascript' language='javascript' src='../BossJs/system/js_variables_globales_std.js'></script>
+		<script type='text/javascript' language='javascript' src='../BossJs/commercial/clients_select.js'></script>
+
+		<!--script type="text/javascript" src="../BossIncludes/controle.saisies.js"></script-->
+		<!--Curseur loading -->
+		<link
+		rel="stylesheet" type="text/css" href="../BossIncludes/loading.css"/>
+		<!---SmartMenu-->
+		<link href="../BossIncludes/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+		<script type="text/javascript" src="../BossIncludes/jquery.smartmenus.js"></script>
+		<script type="text/javascript" src="../BossIncludes/jquery.smartmenus.bootstrap.js"></script>
+	</head>
+	<body>
+		<!-------------------- 1-Variables js --------------------------->
+		<input type="hidden" id="id_route" value="{{path('system_routeur')}}"></>
+		<input type="hidden" id="id_node_courant" value="{{nodeCourant}}"></>
+		<input type="hidden" id="timeOut" value="{{timeOutPage}}"></>
+		<input type="hidden" id="max_sel" value="{{max_sel}}"></>
+		<input type="hidden" id="idDataTableAjax" value="{{dataTableAjax}}"></>
+		<div class="container">
+		<!-------------------- 2-Notifications -------------------------->
+				{% if notificationsWarning|length > 0  or notificationsNotice|length > 0%}
+				<div id="notification_msg" style="color:WhiteSmoke; ">											
+							{% for warning in  notificationsWarning %}
+								<p class="alert alert-danger" style = "width:100%" >-{{warning}}</p>
+							{% endfor %}
+							{% for notice in  notificationsNotice %}
+								<p class="alert alert-success" style = "width:100%">-{{notice}}</p>
+							{% endfor %}
+				
+				</div>
+					{% endif %}
+			<!----------------------------3-Loader------------------------------------>
+			<div id="loader" class="ld ld-ring ld-spin"></div>
+			<!----------------------------4-Menu--(smart menu)------------------------>
+			<!----------------------------5-1-Elements du menu------------------------>
+
+			<!----------------------------7-Titre & commentaires --------------------->
+			<h2 id="titre">	<strong>{{titre}}</strong> </h2>
+			<h3 id="titre">{{sousTitre}}</h3>
+
+			<div style="background-color:#F4F6F6;">
+				<h4> {{commentaireTitre}} </h4>
+				<h5 id="commentaire" style="font: font: italic 1.2rem 'Fira Sans', serif;">{{commentaire}}
+				</h5>
+			</div>
+
+			<div>
+				<p id="alarme"></p>
+			</div>
+		<!----------------------------6-boutons outillage------------------>
+			<div>
+				<HR align="center" size="1" width="100%">
+				{% for cmd in pageCmdeOutils %}
+					<button id={{cmd[0]}} class="pull-right" 
+						style="color:{{cmd[3]}};
+						visibility:{{cmd[2]}};
+						background-color:{{cmd[4]}};
+						margin-bottom:5px;margin-left:5px;border-radius: 10%;">
+						{{cmd[5]}}
+					</button>
+				{% endfor %}
+				<HR align="center" size="1" width="100%">
+				<button id="select" class="pull-left" 
+						style="color:white;
+						background-color:SteelBlue;
+						margin-bottom:5px;margin-left:5px;border-radius: 10%;">{{buttonSelect}}</button>
+				<button id="retour" class="pull-left" 
+						style="color:white;
+						background-color:SteelBlue;
+						margin-bottom:5px;margin-left:5px;border-radius: 10%;">{{buttonCancel}}</button>
+
+			</div>
+		<!----------------------------7-Titre & commentaires -------------------------->
+		<!----------------------------8-Boutons de cmde -------------------------->
+			<!--8-1-Boutons zoneConnex (module)-->
+			<!--8-2-Boutons zoneContextGeneral (section)-->
+			<!--8-3-Boutons zoneContextParticulier (selection)-->
+
+		<!----------------------------9-DataTable---------------------------->
+			<div class="container">
+				<div id="header" class="jumbotron">
+					<table id="table" class="table-striped" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								{% for col in columns %}
+									<th>{{ col}}</th>
+								{% endfor %}
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

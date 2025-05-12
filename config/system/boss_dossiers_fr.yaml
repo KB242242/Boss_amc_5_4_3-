@@ -1,0 +1,308 @@
+#	module 	0-system
+#	section 000-communs
+#   node    boss_dossier_*fr.yaml
+#   lang    fr
+#	refNode	20_000_5
+
+
+module_*1:  "Commercial"
+ 
+dossier_*1_1:      
+    nom:                "GRC"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+dossier_*1_1_1:      
+    nom:                "liste des clients"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+dossier_*1_1_1_:
+    nom:                "liste des contacts clients"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*1_2:      
+    nom:                "Marketing"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*1_3:         
+    nom:                "Catalogues des sercices"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*1_4:
+    nom:                "Affaire"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+ 
+
+dossier_*1_4_1:       
+    nom:                "Affaires courantes"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*1_4_2:
+    nom:                "Affaires en sommeil"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""     
+dossier_*1_4_3:  
+    nom:                "Affaires archives 2024"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*1_4_4:      
+    nom:                "Affaires archives 2025"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+module_*2:   "Opérations"  
+dossier_*2_1: 
+    nom:                "Atelier"
+    droits:             "grp_dg,"
+    typeDoc:            "planing usinage"
+    dureeValidite:      ""
+
+dossier_*2_1_1:      
+    nom:                "equilibrage"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+dossier_*2_1_2:      
+    nom:                "usinage"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+dossier_*2_1_2_1:      
+    nom:                "tournage"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+dossier_*2_1_2_2:      
+    nom:                "fraisage"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+dossier_*2_3:        
+    nom:                "Interventions exterieures"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*2_4:        
+    nom:                "Ventes articles magasin"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+module_*3:   "Services Généraux Matériel"        
+dossier_*3_1:               
+    nom:                "Maintenance production"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*3_2:               
+    nom:                "Maintenance  bâtiments et infrastructures"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*3_3:               
+    nom:                "Maintenance véhicules, bus, camions, engins"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*3_4:               
+    nom:                "Maintenance mécanique"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*3_5:               
+    nom:               "Maintenance elec. instrum."
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*3_6:               
+    nom:                "Projets et travaux neufs"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*3_7:               
+    nom:                "Logistique"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+module_*4:   "Approvisionnement et gestion des stocks"
+dossier_*4_1:       
+    nom:                "Besoins"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*4_2:      
+    nom:                "Magasin stock"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*4_2_1:           
+    nom:                "Inventaire periodique"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+module_*5: "Achats"
+dossier_*5_1:       
+    nom:                "Demandes prix et délais"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*5_2:       
+    nom:                "Commandes"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*5_3:       
+    nom:                "Receptions commandes"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*5_4:       
+    nom:                "Gestion des Fournisseurs"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+module_*6:   "Administratif" 
+dossier_*6_1:      
+    nom:                "Courrier"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*6_1_1:             
+    nom:                "Courrier arrivé"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*6_1_2:             
+    nom:                "Courrier départ"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*6_1_3:              
+    nom:                "Annuaire entreprises" 
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*6_1_4:               
+    nom:                "Annuaire particulier"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*6_2:      
+    nom:                "Notes de service"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*6_3:      
+    nom:                "Documentation"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*6_3_1:             
+    nom:                "Doc. operationnelle"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*6_3_2:             
+    nom:                "Doc. fonctionnelle"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*6_4:       
+    nom:                "Assurances Baux"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*6_5:       
+    nom:                "Assurances Vehicule"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*6_6:        
+    nom:                "Litiges"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+  
+module_*7: "Ressources Humaines (DRH)"
+dossier_*7_1:     
+    nom:                "Liste personnel"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*7_2:      
+    nom:                "Evaluation du personnel"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*7_3:      
+    nom:                "Formation"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*7_4:      
+    nom:                "Santé"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+dossier_*7_5:      
+    nom:                "Congés"
+    droits:             "grp_dg,"
+    typeDoc:            ""
+    dureeValidite:      ""
+
+
+module_*8: "Finance"
+    
+module_*9: "Qualité"
+
+module_*10: "Systeme informatique"
+
+
+
+ 
+

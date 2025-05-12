@@ -1,0 +1,35 @@
+#	module 	0-system
+# section 100-connexion
+# lang    fr
+#	refNode	0_100_3
+
+message_system:
+   #0_100_3 chg_pwd
+    warning_0_0: " Erreur entite User.php"
+    warning_1_0: "Vous devez être connecté"
+    warning_2_0: "Utilisateur non trouvé"
+    warning_3_0: "Ancien mot de passe incorrect"
+    warning_4_0: "Les nouveaux mots de passe ne correspondent pas"
+    warning_5_0: "Une erreur inconnue est survenue"
+ 
+    notice_0_0: "Mot de passe modifié avec succès"
+
+
+    #0-130-0 menu principal
+
+texte_page:
+    #0_100_3 chg_pwd
+    txt_1_0: "Changer votre mot de passe"
+    txt_2_0: ""
+    txt_3_0: ""
+    txt_4_0: ""
+texte_Form:
+   # Labels du formulaire
+    frm_1_0: "Client"
+    txt_input_1: "Ancien mot de passe"
+    txt_input_2: "Nouveau mot de passe"
+    txt_input_3: "Répéter le nouveau mot de passe"
+
+    #Commandes du formulaire
+    txt_submit: "Enregistrer"
+    txt_cancel: "Annuler"

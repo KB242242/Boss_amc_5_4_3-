@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Boss</title>
+		{% block includes %}
+			{% include 'partials/includes.html.twig' %}
+		{% endblock %}
+		<!---Boss -->
+		<script type='text/javascript' language='javascript' src='../BossJs/system/js_utilities.js'></script>
+		<script type='text/javascript' language='javascript' src='../BossJs/system/js_variables_globales_std.js'></script>
+		<script type='text/javascript' language='javascript' src='../BossJs/system/connexion.js'></script>
+		<script type='text/javascript' language='javascript' src='../BossIncludes/controle_saisies.js'></script>
+
+	</head>
+	<body>
+		<div class="container" style=" margin-top: 10px; margin-left: 30px; margin-right: 30px;">
+			<input type="hidden" id="route_retour" value="{{path('system_routeur')}}">
+			<!-------------------- Notifications -------------------------->
+				{% if notificationsWarning|length > 0  or notificationsNotice|length > 0%}
+				<div id="notification_msg" style="border:solid ; color:WhiteSmoke; ">											
+							{% for warning in  notificationsWarning %}
+								<p class="mb-0" style=" color: red">-{{warning}}</p>
+							{% endfor %}
+							{% for notice in  notificationsNotice %}
+								<p class="mb-0" style=" color: blue">-{{notice}}</p>
+							{% endfor %}
+				
+				</div>
+					{% endif %}
+			<!-------------------------------------------------------->
+				<div
+				id="ecran"> {# Pour votre confort, passer en mode plein écran ( touche F11) #}
+				{{texte_page['txt_1_0']}}
+			</div>
+			<!-------------------- Titre et commentaires -------------------------->
+			<h2
+				id="titre">
+				{# Bienvenue  sur le site AMC #}
+				<strong>{{texte_page['txt_2_0']}}</strong>
+			</h2>
+
+			<div
+				class="col-lg-12">
+				{#}En cas de problèmes, veuillez contacter l'administrateur du site:#}
+				<h3>{{texte_page['txt_3_0']}}</h3>
+				<blockquote>
+					<FONT color="BlueViolet">
+						<em>
+							{{texte_page['txt_4_0']}}
+						</em>
+					</FONT>
+				</blockquote>
+			</div>
+			<div>
+				<p id="alarme"></p>
+			</div>
+
+			<!-------------------- Declaration formulaire  ---------------------------->
+			<form
+				id="myform" action="" method="post" name="form">
+				<!-------------------- Boutons de commande ---------------------------->
+				<div class="form-group">
+					<div>
+						<HR align="center" size="1" width="100%">
+						<button type="submit" class="btn btn-xs btn-primary">
+							{# Connexion #}
+							{{texte_page['txt_bt_1']}}
+						</button>
+						<button id="retour" class="btn btn-xs btn-secondary">
+							{# Annuler #}
+							{{texte_page['txt_bt_2']}}
+						</button>
+						
+						<HR align="center" size="1" width="100%">
+					</div>
+					<!------------------------- Formulaire -------------------------------->
+					<div class="row">
+						<div class="col-sm-4">
+							{{form_label(form.pseudo, texte_page['txt_input_1'],{'label_attr': {'class':'col-sm3 control-label'}}) }}
+							{{form_widget(form.pseudo,{'attr':{'class':'form-control'}})}}
+						</div>
+						<div class="col-sm-4">
+							{{form_label(form.pwd, texte_page['txt_input_2'],{'label_attr': {'class':'col-sm3 control-label'}}) }}
+							{{form_widget(form.pwd,{'attr':{'class':'form-control'}})}}
+						</div>
+						<div class="col-sm-4">
+							{{form_label(form.retContext, texte_page['txt_input_3'],{'label_attr': {'class':'col-sm3 control-label'}}) }}
+							{{form_widget(form.retContext,{'attr':{'class':'form-control'}})}}
+						</div>
+						
+	
+					</div>
+					{{form_rest(form)}}
+				</div>
+			</form>
+			<!----------------------------Loader------------------------------------>
+			<div id="loader" class="ld ld-ring ld-spin"></div>
+
+		</div>
+	</body>
+</html></div></body></html>

@@ -1,0 +1,311 @@
+    //controle.saisies.js version 3.0.0
+	
+	function controle_saisies (champ,format){
+		// caracteres exotiques predefinis
+		var exotiques =" + - ° ' & ? / { } ! § ¤ $ £ µ : ; < > [ ] # ~"
+		var alphabet = "a b c d e f g h i j k l m o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"  
+		var retour=0;
+		var exclusion="";
+		var trimchamp = champ.trim();
+		var trimformat= format.trim();
+		var f= trimformat.split(";");
+		
+		var message;
+		var msg = new Array();
+		
+		switch(f[0]) {
+			case "":
+			// pas de definition de format
+			message='0';
+			break;
+			case "string":
+				// (string;exclus;max;isNull) //chaine de caracteres (tous), taille max 
+				// si le mot clé 'exotiques' est contenu dans la chaine d'exlusion, on remplace le mots clés parl'ensemble
+				// des caracteres exotiques predefinis.
+				
+				exclusion = inExclus("exotiques",f[1],exotiques)
+				exclusion += inExclus("alphabet",f[1],alphabet)
+				max=f[2];
+				nullable = f[3].trim();
+				
+				msg[0]= '0';
+				msg[1] = "Le champ ne doit pas être vide !";
+				msg[2] = "les caracteres exotiques " + exclusion + " ne sont pas admis!"
+				msg[3] = "Le champ ne doit pas contenir plus de "+ max + " caractères!";
+				
+				// prepa des variables
+				isNotNull = chaineEgale(nullable,"vide")? false:true;
+				taille = trimchamp.length;
+				// test is null
+				retour = (taille==0 && isNotNull)?1:0;
+				if (parseInt(taille) > 0){
+					// test exclusion des caracteres exotiques
+					retour = (retour==0 && isInclus(exclusion,trimchamp) )?2:retour;
+					// test taille
+					maxDef= !max? false:true;
+					retour = (retour==0 && maxDef && (taille > max) )?3:retour;				
+				}
+				
+				message=msg[retour];
+			break;
+			case "integer":
+			// nombre entier compris entre 2 valeurs 
+			//(integer;min;max;isVide)
+				min = f[1];
+				max = f[2];
+				nullable = f[3];
+				
+				msg[0]= '0';
+				msg[1] = "Le champ ne doit pas être vide !";
+				msg[2] = "Le champ doit être un nombre entier !";
+				msg[3] = "La valeur doit être comprise entre (" + min + " et "+  max +")"
+				
+				// prepa des variables
+				isNotNull = chaineEgale(nullable.trim(),"vide")? false:true;
+				taille = trimchamp.length;
+				// test is null
+				retour = (taille==0 && isNotNull)?1:0;
+				if (parseInt(taille) > 0){
+					//test integer validateInteger retourne vrai si trimchamp est un integer
+					retour = (retour==0 && validateInteger(trimchamp))?retour:2;
+					//test valeur si min max defini
+					minDef = !min ? false:true; maxDef= !max? false:true;
+					retour = (retour==0 && minDef &&(parseInt(trimchamp) < parseInt(min)))?3:retour;
+					retour = (retour==0 && maxDef &&(parseInt(trimchamp) > parseInt(max)))?3:retour;
+				}
+				message=msg[retour];
+			break;
+			case "float":
+			//float; min; max; isVide
+				min = f[1];
+				max = f[2];
+				nullable = f[3];
+				
+				msg[0]= '0';
+				msg[1] = "Le champ ne doit pas être vide !"; 
+				msg[2] = "Le champ doit être decimal avec un point pour separateur !";
+				msg[3] = "La valeur doit être comprise entre (" + min + " et "+  max +")"
+				
+				// test is null
+				// si nullable est vrai => isNotNull => faux
+				isNotNull = chaineEgale(nullable.trim(),"vide")? false:true;
+				taille = trimchamp.length;
+				// test is null
+				retour = (taille==0 && isNotNull)?1:0;
+				if (parseInt(taille) > 0){
+					//test float
+					retour = (retour==0 && noVirgule(trimchamp))? retour:2;
+					retour = (retour==0 && (validateFloat(trimchamp)|| validateInteger(trimchamp) ))? retour:2;
+					//test valeur si min max defini
+					minDef = !min ? false:true; maxDef= !max? false:true;
+					retour = (retour==0 && minDef &&(parseInt(trimchamp) < parseInt(min)))?3:retour;
+					retour = (retour==0 && maxDef &&(parseInt(trimchamp) > parseInt(max)))?3:retour;
+				}
+				message=msg[retour];
+
+			break;
+			case "phone":
+				nullable = f[1];
+				
+				msg[0]= '0';
+				msg[1] = "Le champ ne doit pas être vide !"; 				
+				msg[2] = "Le format telephone n'est pas valide!";
+				// test is null
+				isNotNull = chaineEgale(nullable.trim(),"vide")? false:true;
+				taille = trimchamp.length;
+				retour = taille==0 && isNotNull ?1:0;
+				// test is null
+				retour = (taille==0 && isNotNull)?1:0;
+				if (parseInt(taille) > 0){
+					//test phone
+					retour = (retour==0 && (validatePhoneCongo(trimchamp)|| validatePhoneFrance(trimchamp) ))? retour:2;
+				}
+				message=msg[retour];
+			break;
+			case "mail":
+				nullable = f[1];
+
+				msg[0]= '0';
+				msg[1] = "Le champ ne doit pas être vide !"; 								
+				msg[2] = "Le format mail n'est pas valide!";
+				// test is null
+				isNotNull = chaineEgale(nullable,"vide")? false:true;
+				taille = trimchamp.length;
+				retour = taille==0 && isNotNull ?1:0;
+				if (parseInt(taille) > 0){
+					//test mail
+					retour = (retour==0 && (validateEmail(trimchamp) ))? retour:2;
+				}
+				message=msg[retour];
+			break;
+			case "date":
+				nullable = f[1];
+
+				msg[0]= '0';
+				msg[1] = "Le champ ne doit pas être vide !"; 								
+				msg[2] = "Le format date n'est pas valide (jj/mm/aaaa)!";
+				// test is null
+				isNotNull = chaineEgale(nullable.trim(),"vide")? false:true;
+				taille = trimchamp.length;
+				//
+				retour = taille==0 && isNotNull ?1:0;
+				retour = isDate(trimchamp)?  retour:2;
+				message=msg[retour];
+			break;
+				case "hh:mn":
+				nullable = f[1];
+
+				msg[0]= '0';
+				msg[1] = "Le champ ne doit pas être vide !"; 								
+				msg[2] = "Le format heure n'est pas valide!";
+				// test is null
+				isNotNull = chaineEgale(nullable.trim(),"vide")? false:true;
+				taille = trimchamp.length;
+				retour = taille==0 && isNotNull ?1:0;
+				if (parseInt(taille) > 0){
+					//test is heure min
+					retour = (retour==0 && (validateEmail(trimchamp) ))? retour:2;
+				}
+				message=msg[retour];
+			break;
+				default:
+				message = '0';
+		}
+	
+		return message;
+	}
+	function noVirgule(chaine){
+		return chaine.indexOf(",")==-1;
+	}
+	function inExclus(exclus, chaine, inclusion){
+		// ajoute l'ensemble des caracteres exotiques dans la chaine d'exlusion si le mot exclus est dans la chaine d'exclusion
+		var g = new Array();
+		var g= chaine.split(" ");
+		var retour = "";
+		for (var i = 0; i < g.length; i++) {
+			if (chaineEgale(exclus, g[i])){
+				retour += " " + inclusion
+			}
+		}	
+		// supprime le premier espace
+		retour = retour.trim()
+		return retour;
+	}
+	function isInclus(exclus, chaine){
+		// retour true si un caractere exclus est present dans la chaine, sinon false
+		// les caracteres ou les mots exlus sont separes par des espaces
+		// si un des caracteres appartient a la chaine, la reponse est true
+		var g = new Array();
+		var g= exclus.split(" ");
+		var retour = false;
+		for (var i = 0; i < g.length-1; i++) {
+				xx= g[i];
+				yy = chaine.indexOf(xx,0);
+				if(yy > -1){
+					retour = true;
+					break;
+				}
+		}
+		return retour;
+	}	
+	function teste_inclus(Inclus, chaine){
+		// chaque caratere ou mot séparés par ";" doit être inclus dans la chaine
+		// si un des mots n'appartient pas a la chaine, la reponse est false
+
+		var f= Inclus.split(";");
+		var retour = true;
+		for (var i = 0; i < f.length; i++) {
+				xx= f[i];
+				yy = chaine.indexOf(xx,0);
+				if(yy == -1){
+					retour = false ;
+					break;
+				}
+		}
+		return retour;
+	}
+
+	function chaineEgale(chaine1, chaine2){
+		// teste l egalite de deux chaine 
+		var retour = true;
+		var tailleChaine1 = chaine1.length;
+		var tailleChaine2 = chaine2.length;
+		retour = (tailleChaine1 == tailleChaine2)?retour:false;
+		if (retour){
+			// si meme taille 
+			for (i=0; i<tailleChaine1 ; i++){
+				a =chaine1.charCodeAt(i);
+				b=chaine2.charCodeAt(i);
+				retour= (a == b)?retour:false;
+				if (!retour)
+					break;
+			}
+		}
+		
+		return retour;
+	}
+	function validateInteger(nombre) {
+		var re = /^[+|-]?\d+$/ ; 
+		return re.test(nombre);
+	}
+	 
+	function validateFloat(nombre) {
+		var re = /^[+|-]?[0-9]+(\.[0-9][0-9]?)?/;  
+		return re.test(nombre);
+		///^[0-9]+(.[0-9]+)?$/ ;
+	}
+	
+	function validatePhoneFrance(phone) {
+		// commence par +33 suivi de espace(\s) un digit \s  
+		var re = /^[+]33 ([0-9]{1}\s[0-9]{2}\s[0-9]{2}\s[0-9]{2}\s[0-9]{2})/;
+		return re.test(phone);
+	}
+	function validatePhoneCongo(phone) {
+		// commence par 3 paquets de 2 digits et un paquet de 3 digits
+		var re = /^([0-9]{2}\s){3}[0-9]{3}$/; // ^([0-9]{2}){3} [0-9]{3} /;///^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}/;
+		return re.test(phone);
+	}
+	function validateEmail(email) {
+		var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(email);
+	}
+	
+	function validateDate(theDate) {
+		var re = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+		return re.test(theDate);
+	}
+	function isDate(txtDate){
+	  var currVal = txtDate;
+	  if(currVal == '')
+	    return false;
+	  //Declare Regex 
+	  var rxDatePattern = /^(\d{1,2})(\/|-)(\d{1,2})(\/|-)(\d{4})$/;
+	  var dtArray = currVal.match(rxDatePattern); // is format OK?
+	  if (dtArray == null)
+	     return false;
+	  //Checks for mm/dd/yyyy format.
+	  dtMonth = dtArray[1];
+	  dtDay= dtArray[3];
+	  dtYear = dtArray[5];
+	  if (dtMonth < 1 || dtMonth > 12)
+	      return false;
+	  else if (dtDay < 1 || dtDay> 31)
+	      return false;
+	  else if ((dtMonth==4 || dtMonth==6 || dtMonth==9 || dtMonth==11) && dtDay ==31)
+	      return false;
+	  else if (dtMonth == 2)
+	  {
+	     var isleap = (dtYear % 4 == 0 && (dtYear % 100 != 0 || dtYear % 400 == 0));
+	     if (dtDay> 29 || (dtDay ==29 && !isleap))
+	          return false;
+	  }
+	  return true;
+	}
+	function validateHHMN(hhmn) {
+		var f= hhmn.split(":");
+		retour = (f[0].length >0) && (f[0].length <3) && (f[1].length >0) && (f[1].length <3)?true:false;
+		if(retour) {retour = (f[0]< 24)&& (f[1]< 60)? true:false;}
+		return retour;
+	}
+	
+	

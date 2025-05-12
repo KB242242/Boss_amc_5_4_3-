@@ -1,0 +1,18 @@
+#	module 	0-system
+#	section 000-communs
+#   node    boss_dossier_fr.yaml
+#   lang    fr
+#	refNode	20_000_5
+
+
+
+g1:      
+    nom:           "AMC_1"
+    serveur:       "localhost"
+    chemin:        "C:/wamp64/www/Boss_5_4_3/public/Ged/fichiersDocuments/"
+    cle_chiffrage: "fhjpGi58tyr"
+g2:      
+    nom:           "AMC_2"
+    serveur:       "192.168.1.10" #exemple, utilisateur@serveur.com ou IP 192.168.1.10
+    chemin:        "C:/Dossier/"
+    cle_chiffrage: "fhjpGi58tyr"

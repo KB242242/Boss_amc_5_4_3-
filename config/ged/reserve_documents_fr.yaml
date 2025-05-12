@@ -1,0 +1,52 @@
+ 
+#	module 	20-GED 
+#	section 110-reserve_document
+#   node    reserve_documents
+#   lang    fr
+#	refNode	20_110_0
+message_system:
+    notice_0_0:     ""
+    notice_0_1:     ""
+    warning_0_0:    ""
+    warning_1_0:    ""
+    warning_2_0:    ""
+    warning_3_0:    ""
+    warning_3_1:    ""
+
+texte_menu:
+    mnu_1:          ""
+    mnu_disconnect: "Déconnexion" 
+
+texte_page:
+    #texte page
+    txt_1_0:        "Gestion Electronique des Documents"
+    txt_2_0:        "Enregistrer des fichiers dans la base tampon"
+    txt_3_0:        "Selectionner les fichiers a enregistrer."
+    txt_4_0:        ""
+    #label boutons
+        #outillage
+    txt_bt_1_1:       ""
+        #commandes 
+            #8-1-cmdeConnexPage 
+    txt_bt_2_1:       ""
+             #8-2-cmdeContextGenePage 
+    txt_bt_3_1:       ""
+    txt_bt_3_2:       "Enregistrer les documents"
+    txt_bt_3_3:       "Rechercher un document"
+    txt_bt_3_4:       "Administrer les documents"
+    txt_bt_3_5:       "Quitter GED"
+            #8-3-cmdeFormPage
+    txt_bt_4_1:       "Enregistrer"
+    txt_bt_5_1:       "Supprimer les selections"
+
+    #label input
+    txt_input_1:       ""
+
+texte_cols_dataTable:
+    #columns datatable
+    txt_col_1:      "Ref"
+    txt_col_2:      "Date reserv."
+    txt_col_3:      "Titre"
+    txt_col_4:      "Type"
+    txt_col_5:      "Remarques"      
+   

@@ -1,0 +1,7 @@
+https://127.0.0.1:8000/boss_connexion?lang=fr
+https://127.0.0.1:8000/ged_reserve_document
+https://127.0.0.1:8000/ged_reserve_add
+https://127.0.0.1:8000/info.php
+
+https://www.llama2.ai/
+http://localhost/phpmyadmin/

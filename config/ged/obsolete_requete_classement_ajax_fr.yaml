@@ -1,0 +1,122 @@
+#	module 	20-GED 
+#	section 120-enregistre_document
+#   node    requete_classement_ajax
+#   lang    fr
+#	refNode	20_120_4
+message_system:
+    notice_0_0:     ""
+    warning_0_0:    ""
+
+texte_menu:
+    mnu_1:          ""
+    mnu_disconnect: "Déconnexion" 
+
+texte_page:
+    #texte page
+    txt_1_0:        ""
+    #label boutons
+        #outillage
+    txt_bt_1_1:       ""
+        #commandes 
+            #8-1-cmdeConnexPage 
+    txt_bt_2_1:       ""
+             #8-2-cmdeContextGenePage 
+    txt_bt_3_1:       ""
+            #8-3-cmdeContextParticulierPage
+    txt_bt_4_1:       ""
+    #label input
+    txt_input_1:       ""
+
+texte_cols_dataTable:
+    #comumns datatable
+    txt_col_1:      ""       
+graphe_node:
+    "000_000_000_000": "Commercial"
+    "000_001_000_000":      "GRC"
+    "000_002_000_000":      "Marketing"
+    "000_003_000_000":      "Affaires"
+    "000_004_000_000":      ""
+    "001_000_000_000": "Opérations"   
+    "001_001_000_000":      "Atelier"
+    "001_001_001_000":          "Pompes centrifuges"
+    "001_001_002_000":          "Analyse vibratoire"
+    "001_001_003_000":          "Metrologie"
+    "001_001_004_000":          "Equilibrage"   
+    "001_001_005_000":          "Atelier clapets pompes"
+    "001_001_006_000":          "Hydraulique"
+    "001_001_007_000":          "Flexible hydraulique"
+    "001_001_008_000":          "Metallerie"
+    "001_001_008_001":              "Chaudronnerie"   
+    "001_001_008_002":              "Soudure"
+    "001_001_008_003":              "Peinture sablage"
+    "001_001_008_004":              ""
+    "001_001_009_000":          "Usinage"
+    "001_001_009_001":              "Fraisage"
+    "001_001_009_002":              "Tournage"
+    "001_001_009_003":              "Découpe"
+    "001_001_009_004":              "Ajustage"
+    "001_001_009_005":              ""
+    "001_001_009_006":           ""
+    "001_002_000_000":      "Interventions exterieures"
+    "001_003_000_000":      "Ventes articles magasin"
+    "001_004_000_000":      ""
+
+    "002_000_000_000": "Services Généraux Matériel"   
+    "002_001_000_000":      "Maintenance"
+    "002_001_001_000":              "Maintenance production"
+    "002_001_002_000":              "Maintenance  bâtiments et infrastructures"
+    "002_001_003_000":              "Maintenance véhicules, bus, camions, engins"
+    "002_001_004_000":              "Maintenance mécanique"
+    "002_001_005_000":              "Maintenance elec. instrum."
+    "002_001_006_000":              ""
+    "002_002_000_000":      "Projets et travaux neufs"
+    "002_003_000_000":      "Logistique"
+    "002_004_000_000":      ""
+
+    "003_000_000_000": "Approvisionnement et gestion des stocks"
+    "003_001_000_000":      "Besoins"   
+    "003_002_000_000":      "Magasin stock"
+    "003_003_000_000":      ""
+
+    "004_000_000_000": "Achats"
+    "004_001_000_000":       "Demandes prix et délais"
+    "004_002_000_000":       "Commandes"
+    "004_003_000_000":       "Receptions commandes"
+    "004_004_000_000":       "Gestion des Fournisseurs"
+    "004_005_000_000":       ""
+
+    "005_000_000_000": "Administratif"
+    "005_001_000_000":      "Courrier"
+    "005_001_001_000":              "Courrier arrivé"
+    "005_001_002_000":              "Courrier départ"
+    "005_001_003_000":              "Annuaire entreprises"   
+    "005_001_004_000":              "Annuaire particulier"  
+    "005_001_005_000":              ""
+    "005_002_000_000":      "Notes de service"
+    "005_003_000_000":      "Documentation"
+    "005_003_001_000":              "Doc. operationnelle"
+    "005_003_002_000":              "Doc. fonctionnelle"
+    "005_003_003_000":              ""
+    "005_004_000_000":       "Assurances"
+    "005_005_000_000":       "Baux"
+    "005_006_000_000":       "Litiges" 
+    "005_007_000_000":       ""   
+    
+    "006_000_000_000": "Ressources Humaines (DRH)"
+    "006_001_000_000":      "Liste personnel"
+    "006_002_000_000":      "Evaluation du personnel"
+    "006_003_000_000":      "Formation"
+    "006_004_000_000":      ""   
+ 
+    "007_000_000_000": "Finance"
+    "007_001_000_000": ""
+    "008_000_000_000": "Qualité"
+    "008_001_000_000": ""
+
+    "009_000_000_000": "Systeme informatique"
+    "009_001_000_000": ""
+
+
+
+
+

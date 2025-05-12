@@ -1,0 +1,26 @@
+#	module 	0-system
+#	section 000-communs
+#   node    boss_activite_fr.yaml
+#   lang    fr
+#	refNode	20_000_5
+#Principe des règles
+    # regle_1_1_1 (&&[par_1,par_2,...,])
+    # regle_1_1_2 (&&[par_1,par_2,...,])
+    # regle_1_1_1 || regle_1_1_2
+
+graphe_node:
+    groupeDoc_1:              "CommercialOperationSensibles"  
+    typeDoc_1_1:                    "Rapport"
+    regle_1_1_1:                          "["AccreditUserMax" =>2,"Module" => "["Commercial", "Operation"]
+    regle_1_1_2:                          "groupe_user" => "[grp_comm_affaires]"]"
+    typeDoc_1_2:                    "Journal de bord"
+    regle_1_2_1:                          "["AccreditUserMax" =>2,"Module" => "["Commercial", "Operation"]
+   
+    groupeDoc_2:              "CommercialOperationPeuSensibles"
+    typeDoc_2_1:                    "Rapport"
+    regle_2_1_1:                          "["AccreditUserMax" =>2,"Module" => "["Commercial", "Operation"]
+    regle_2_1_2:                          "groupe_user" => "[grp_comm_affaires]"]"
+    typeDoc_2_2:                    "Journal de bord"
+
+
+

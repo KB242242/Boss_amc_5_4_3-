@@ -1,0 +1,56 @@
+#	module 	20-GED 
+#	section 110-reserve_document
+#   node    reserve_add
+#   lang    fr
+#	refNode	20_110_1
+message_system:
+    notice_0_0:     "Le fichier "
+    notice_0_1:     " est enregistré "
+    warning_0_0:    "Le fichier doit être de l'un des types suivant  "
+    warning_1_0:    "La taille du fichier doit êre inferieure à  "
+    warning_2_0:    "Une erreur s'est produite pendant le transfert du fichier! "
+    warning_3_0:    "erreur de transfert des données sur la base! "
+    warning_4_1:    "Le fichier dépasse la taille maximale autorisée par la directive upload_max_filesize dans votre fichier php.ini."
+    warning_4_2:    "Le fichier dépasse la taille max spécifiée dans l'attribut MAX_FILE_SIZE du formulaire HTML!"
+    warning_4_3:    "Le fichier n'a été que partiellement téléchargé."
+    warning_4_4:    "Pas de fichier selectionné! "
+    warning_4_5:    "Erreur inconnue"
+    warning_4_6:    "Le répertoire temporaire est manquant."
+    warning_4_7:    "Échec de l'écriture du fichier sur le disque."
+    warning_4_8:    "Une extension PHP a arrêté l'upload"
+
+
+texte_menu:
+    mnu_1:          ""
+    mnu_disconnect: "Déconnexion" 
+
+texte_page:
+    #texte page
+    txt_1_0:        "Gestion Electronique des Documents"
+    txt_2_0:        ""
+    txt_3_0:        ""
+    txt_4_0:        ""
+    #label boutons
+        #outillage
+    txt_bt_1_1:       ""
+        #commandes 
+            #8-1-cmdeConnexPage 
+    txt_bt_2_1:       ""
+             #8-2-cmdeContextGenePage 
+    txt_bt_3_1:       ""
+    txt_bt_3_2:       ""
+    txt_bt_3_3:       ""
+    txt_bt_3_4:       ""
+    txt_bt_3_5:       "Quitter GED"
+            #8-3-cmdeContextParticulierPage
+    txt_bt_4_1:       ""
+    #label input
+    txt_input_1:       ""
+
+texte_cols_dataTable:
+    #comumns datatable
+    txt_col_1:      ""       
+   
+
+
+

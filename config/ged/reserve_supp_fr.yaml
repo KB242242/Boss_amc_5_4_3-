@@ -1,0 +1,38 @@
+#	module 	20-GED 
+#	section 110-reserve_document
+#   node    reserve_supp
+#   lang    fr
+#	refNode	20_110_3
+message_system:
+    notice_0_0:     "Le fichier "
+    notice_0_1:     " a été supprimé "
+    warning_0_0:    "Une erreur s'est produite lors de la suppression du fichier."
+    warning_1_0:    ""
+  
+
+
+texte_menu:
+    mnu_1:          ""
+texte_page:
+    #texte page
+    txt_1_0:        ""
+    #label boutons
+        #outillage
+    txt_bt_1_1:       ""
+        #commandes 
+            #8-1-cmdeConnexPage 
+    txt_bt_2_1:       ""
+             #8-2-cmdeContextGenePage 
+    txt_bt_3_1:       ""
+            #8-3-cmdeContextParticulierPage
+    txt_bt_4_1:       ""
+    #label input
+    txt_input_1:       ""
+
+texte_cols_dataTable:
+    #comumns datatable
+    txt_col_1:      ""       
+   
+
+
+

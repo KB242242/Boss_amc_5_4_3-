@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
+		<title>Boss</title>
+		{% block includes %}
+			{% include 'partials/includes.html.twig' %}
+		{% endblock %}
+		<!---Boss -->
+		<script type='text/javascript' language='javascript' src='../BossJs/system/js_utilities.js'></script>
+		<script type='text/javascript' language='javascript' src='../BossJs/system/js_variables_globales_std.js'></script>
+		<script type='text/javascript' language='javascript' src='../BossJs/commercial/clients.js'></script>
+		<link href="../BossIncludes/boss.css" rel="stylesheet">
+	</head>
+	<body>
+		<!----------------------------1-Variables js---------------------------------->
+		<input type="hidden" id="routeRouteur" value="{{path('system_routeur')}}"></>
+		<input type="hidden" id="nodeCourant" value="{{nodeCourant}}"></>
+		<input type="hidden" id="dataTableAjax" value="{{configNode['dataTableAjax']}}"></>
+		<input type="hidden" id="timeOut" value="{{configNode['timeOutPage']}}"></>
+
+
+		<input type="hidden" id="maxSel" value="{{configNode['maxSel']}}"></>
+		<input type="hidden" id="nbColumns" value="{{configNode['nbColumns']}}"></>
+		<!-------------------- 2-Notifications -------------------------->
+		{% if notificationsWarning|length > 0  or notificationsNotice|length > 0%}
+			<div id="notification_msg" style="border:solid ; color:WhiteSmoke; ">											
+					{% for warning in  notificationsWarning %}
+						<p class="mb-0" style=" color: red">-{{warning}}</p>
+					{% endfor %}
+					{% for notice in  notificationsNotice %}
+						<p class="mb-0" style=" color: blue">-{{notice}}</p>
+					{% endfor %}
+		
+			</div>
+		{% endif %}
+		<!----------------------------3-Loader------------------------------------>
+		<div id="loader" class="ld ld-ring ld-spin"></div>
+		<!----------------------------4-Menu--(smart menu)---------------------------------->
+		{% if isView %}
+			<div class="container"><div class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><img alt="Brand" src="../BossIncludes/BossIcon.GIF"></a>
+			</div>
+			<!----------------------------5-1-Elements du menu------------------------>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li>
+						<a id="menuPrincipal" href="#">
+							{{txtLang['pageParent']['mnu_1']}}</a>
+					</li>
+					<li></li>
+					<li>
+						<a id='contactsClient' href='#'> {{txtLang['pageParent']['mnu_1_100_0']}}</a>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a id="disconnect" href="#">
+							{{txtLang['pageParent']['mnu_disconnect']}}</a>
+					</li>
+				</ul>
+
+			<!----------------------------6-boutons outillage------------------>
+			<div class="container">
+				<!---boutons Acces aux outils communs commande groupe A---->
+					<!--div class='row'-->
+					<HR align="center" size="1" width='99%' style='padding-left:2px;  margin-top:2px;margin-bottom:2px;border-top: 1px solid #2e2c2c;'>
+						{% for cmd in cmdeOutils %}
+							<button id={{cmd[0]}} class="btn btn-round btn-icon-only" 
+								style="color:{{cmd[3]}};
+								background-color:{{cmd[4]}};
+								visibility:visible;
+								margin-bottom:5px;margin-left:5px;border-radius: 10%;">
+												{{cmd[5]}}
+							</button>
+						{% endfor %}
+					<HR align="center" size="1" width='99%' style='margin-top:2px;margin-bottom:2px;border-top: 1px solid #2e2c2c;'>
+			</div>
+					</div>
+		{% endif %}
+		<!----------------------------7-Titre & commentaires -------------------------->
+		<div class="container"> <!--div class='row'--><!--div class='col-sm-12' -->
+			<div style=""> 
+				<h2 id="titre" style="color:#1A5276;">{{nodeTitre}}</h2>
+				<h3 id="sousTitre" style="color:#1A5276;">{{txtLang['pageParent']['txt_2_0']}}</h3>
+			</div>
+			<div style="background-color:#F4F6F6;">
+				<h4>{{txtLang['pageParent']['txt_3_0']}}</h4>
+				<h5 id="commentaire_1" style="font: font: italic 1.2rem 'Fira Sans', serif;">{{txtLang['pageParent']['txt_4_0']}}</h5>
+			</div>
+		</div>
+			<HRalign="center"size="1" width='99%' style='padding-left:2px;  margin-top:2px;margin-bottom:2px;border-top: 1px solid #2e2c2c;'>
+		<!----------------------------8-Boutons de cmde -------------------------->
+		<div class="container">
+
+			<!--8-1-Boutons zoneConnex (module)-->
+			<div id="zoneConnex" >
+				{% for cmd in cmdeConnex %}
+					<button id={{cmd[0]}} class="btn-primary" 
+						style="color:{{cmd[3]}};
+						background-color:{{cmd[4]}}; 
+						visibility:visible;
+						margin-bottom:5px;margin-left:5px;border-radius: 10%;">
+					{{cmd[5]}}
+					</button>
+				{% endfor %}
+			</div>
+			<!--8-2-Boutons zoneContextGeneral (section)-->
+			<div id="zoneContextGene">
+				{% for cmd in cmdeContextGene %}
+					<button id={{cmd[0]}} class="btn-primary" 
+						style="color:{{cmd[3]}}; 
+						background-color:{{cmd[4]}}; 
+						margin-bottom:5px; margin-left:5px; border-radius: 10%;">
+					{{cmd[5]}}
+					</button>
+					{% endfor %}
+			</div>
+			<!--8-3-Boutons zoneContextParticulier (selection)-->
+			<div id="zoneContextPart" style="display: none ">
+				{% for cmd in cmdeContextParticulier %}
+					<button id={{cmd[0]}} class="btn-primary" 
+						style="color:{{cmd[3]}}; 
+						background-color:{{cmd[4]}}; 
+						visibility: visible; 
+						margin-bottom:5px; margin-left:5px; border-radius: 10%;">
+					{{cmd[5]}}
+					</button>
+				{% endfor %}
+			</div>
+		</div>
+		<!----------------------------9-DataTable---------------------------->
+		<div class="container">
+			<div id="header" class="jumbotron">
+				<table id="table" class="table-striped" cellspacing="0" width="100%">
+					<thead>
+						<tr>
+							{% for col in configNode['dataTableColumns']  %}
+								<!--affichage des colonnes de la dataTable-->
+								<th>{{ txtLang['cols_dataTable'][col] }}</th>
+							{% endfor %}
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+</body>
+</html>

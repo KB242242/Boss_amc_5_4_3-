@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Error page
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="example-wrapper">
+    <h1>Nous rencontrons un petit souci...</h1>
+    <p>Malheureusement, une erreur inattendue s'est produite au sein de notre système : <strong>{{erreur_system}}</strong>.</p>
+    <p>Voici quelques actions que vous pouvez entreprendre :</p>
+    <ul>
+        <li>Veuillez actualiser la page.</li>
+        <li>Vérifiez votre connexion internet.</li>
+        <li>Essayez de revenir à la page précédente.</li>
+        <li>Si le problème persiste, veuillez réessayer dans quelques minutes.</li>
+    </ul>
+    <p>Notre équipe technique est mobilisée pour identifier et corriger cette anomalie au plus vite. Nous vous remercions de votre patience.</p>
+</div>
+{% endblock %}

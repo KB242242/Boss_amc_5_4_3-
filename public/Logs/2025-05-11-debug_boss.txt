@@ -1,0 +1,45 @@
+
+
+/0_100_1-3-2-Lecture  donnees entite refUser =109 pwdBd=sophie pwdForm=sophie
+
+0_100_1 3-1- test IP autorise- ipClient127.0.0.1
+
+0_110_0 0Lecture et décodage des parametres["0_100_1","0_130_0","0",[]]
+
+0_110_0 5-Recuperation des droits && routing
+
+0_110_0 6-Test des droits utilisateur sur le node
+
+isNodeDroitUser-2 usersSpec = 100,102,103,104,105,106, refUser = 109
+
+isNodeDroitUser-4 isMembre =  Faux
+
+0_110_0 3-Droits utilisateur sur le node: Vous n'ête pas autorisé à accéder au node  0_130_0
+
+/0_100_1-3-2-Lecture  donnees entite refUser =104 pwdBd=marief pwdForm=marief
+
+0_100_1 3-1- test IP autorise- ipClient127.0.0.1
+
+0_110_0 0Lecture et décodage des parametres["0_100_1","0_130_0","0",[]]
+
+0_110_0 5-Recuperation des droits && routing
+
+0_110_0 6-Test des droits utilisateur sur le node
+
+isNodeDroitUser usersSpec = 100,102,103,104,105,106, refUser = 104
+
+isNodeDroitUser-2 usersSpec = 100,102,103,104,105,106, refUser = 104
+
+isNodeDroitUser-4 isMembre =  Vrai
+
+0_110_0 7-is requete Ajax
+
+0_110_0 8-enregistrement du contexte utilisateur user
+
+0_110_0 10-Controle session courante
+
+0_110_0 11-Appel node suivant requestAppelant = 0_100_1, requestAppele = 0_130_0
+
+11-1-test Si la route est definie 
+
+11-1-test Si la route est definie route = system_menu_principal

@@ -1,0 +1,108 @@
+    function controle_saisies (champ,format){
+		var exotique = "()°+&?/\{}!§¤$£*µ,:;'<>[]#~"
+		var retour = true;
+		var trimchamp = champ.trim();
+		var trimformat= format.trim();
+		var f= trimformat.split("|");
+		 
+		switch(f[0]) {
+			case "string":
+			//string|exclude|include|min|max|nonNul
+				exclus = f[1];
+				inclus = f[2];
+				min = f[3];
+				max = f[4];
+				nonNul = f[5];
+				isNullable = "nullable";
+				taille = trimchamp.length;
+				isVide = (trimchamp = "")?true:false;
+				isNul = (nonNul = isNullable)?true:false; //-1 < nonNul.indexOf(isNullable);
+				retour = ((isVide && isNul)||(!isVide))?retour:false;
+				if (retour){retour = ((taille > max) || (taille < min))?false:retour;}
+				
+				if (retour){retour = teste_exclus(exclus, trimchamp)?false:retour;}
+				if (retour){retour = teste_inclus(inclus, trimchamp)?false:retour;}
+				break;
+			case "float":
+			//float|min|max|nonNul
+				exclus =",";
+				min = f[1];
+				max = f[2];
+				nonNul = f[3];
+				retour = ((!trimchamp) && (nonNul == "nullable"))?false:retour;
+				if (retour){retour = isNaN(trimchamp)?false:retour;}
+				if (retour) {retour = ((trimchamp > max) || (trimchamp < min))?false:retour;}
+				if (retour){retour = teste_exclus(exclus, trimchamp)?false:retour;}
+				break;
+			case "integer":
+			//integer|min|max|nonNul
+				exclus =".,";
+				min = f[1];
+				max = f[2];
+				nonNul = f[3];
+				retour = ((!trimchamp) && (nonNul == "1"))?false:retour;
+				if (retour){retour = isNaN(trimchamp)?false:retour;}
+				if (retour) {retour = ((trimchamp > max) || (trimchamp < min))?false:retour;}
+				if (retour){retour = teste_exclus(exclus, trimchamp)?false:retour;}
+				break;
+        }
+		return retour;
+	}
+	function teste_inclus(charInclus, chaine){
+		// chaque caratere ou mot séparés par ";" doit être inclus dans la chaine
+		
+		var retour = false;
+		var tailleInclus = charInclus.length;
+			for (i=0; i<tailleInclus ; i++){
+				xx= charInclus.substring(i,(i+1));
+				yy = chaine.indexOf(xx);
+				if(yy ==-1){
+					retour = true;
+					break;
+				}
+			}
+		return retour;
+	}
+	function teste_exclus(charExclus, chaine){
+		// chaque caratere doit être inclus dans la chaine
+		var retour = false;
+		var tailleExclus = charExclus.length;
+			for (i=0; i<tailleExclus ; i++){
+				xx= charExclus.substring(i,(i+1));
+				//retourne la position de "xx" dans la chaine
+				yy=chaine.indexOf(xx);
+				if(yy > -1){
+					retour = true;
+					break;
+				}
+			}
+		return retour;
+	}
+	function message_alarme(nom,format){
+		var msg="";
+		var trimformat= format.trim();
+		var f= trimformat.split("|");
+		switch(f[0]) {
+			case "string":	
+			//string|exclude|include|min|max|nonNul
+				msg = "Le champ "+nom+" est au format caractères.";
+				msg+= "il ne doit pas contenir l'un des caractères (" + f[1] +") ";
+				msg+= "il doit contenir l'un des caractères ("+f[2]+") ";
+				msg+= ". Sa taille doit être comprise entre ("+f[3]+" et "+ f[4]+") ";
+				if( f[5] == 1){ msg+= ".Le champ est obligatoire."};
+				break;
+			case "float":
+			//float|min|max|nonNul
+				msg = "Le champ "+nom+" est au format décimal (88.88)";
+				msg+= ". Sa valeur doit être comprise entre ("+f[1]+" et "+ f[2]+") ";
+				if( f[3] == 1){ msg+= ".Le champ est obligatoire."};				
+				break;
+			case "integer":
+			//integer|min|max|nonNul
+				msg = "Le champ "+nom+" est au format entier (8888)";
+				msg+= ". Sa valeur doit être comprise entre ("+f[1]+" et "+ f[2]+") ";
+				if( f[3] == 1){ msg+= ".Le champ est obligatoire."};				
+				break;
+		}
+		return msg;
+	}

@@ -1,0 +1,161 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un utilisateur{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+body {
+    background-color: #121212;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.register-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #1f1f1f;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-card {
+    background-color: #2c2c2c;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+}
+
+.form-check-input {
+    margin-right: 0.5rem;
+}
+
+.form-check-label {
+    color: #fff;
+}
+
+.btn-submit {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-back {
+    margin-left: 1rem;
+    color: #00aced;
+    text-decoration: none;
+}
+
+</style>
+
+{% endblock %}
+
+{% block body %}
+<div class="register-container animate__animated animate__fadeIn">
+    <h1 class="form-title">
+        <i class="fas fa-user-edit"></i> Modifier un utilisateur
+    </h1>
+
+    {{ form_start(editForm) }}
+
+    <div class="form-card">
+        <div class="form-group">
+            <label><i class="fas fa-envelope"></i> Email</label>
+            {{ form_widget(editForm.email, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(editForm.email) }}
+        </div>
+
+        <div class="form-group">
+            <label><i class="fas fa-user"></i> Pseudo</label>
+            {{ form_widget(editForm.pseudo, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(editForm.pseudo) }}
+        </div>
+
+        <div class="form-group">
+            <label><i class="fas fa-id-card"></i> Nom</label>
+            {{ form_widget(editForm.nom, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(editForm.nom) }}
+        </div>
+
+        <div class="form-group">
+            <label><i class="fas fa-id-card-alt"></i> Prénom</label>
+            {{ form_widget(editForm.prenom, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(editForm.prenom) }}
+        </div>
+
+        <div class="form-group">
+            <label><i class="fas fa-font"></i> Initiales</label>
+            {{ form_widget(editForm.initiales, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(editForm.initiales) }}
+        </div>
+
+        <div class="form-section animate__animated animate__slideInRight animate__delay-0-6s">
+            <h2><i class="fas fa-user-shield"></i> Paramètres du compte</h2>
+
+            <div class="form-group mb-3">
+                <label class="form-label">Rôle utilisateur</label>
+                <div class="form-check-group">
+                    {% for choice in editForm.roles %}
+                        <div class="form-check my-1">
+                            {{ form_widget(choice) }}
+                            {{ form_label(choice, null, {'label_attr': {'class': 'form-check-label'}}) }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="form-check">
+                {{ form_widget(editForm.valid, {'attr': {'class': 'form-check-input'}}) }}
+                <label class="form-check-label">
+                    <i class="fas fa-check-circle"></i> Compte validé
+                </label>
+            </div>
+
+            <div class="form-check">
+                {{ form_widget(editForm.blackList, {'attr': {'class': 'form-check-input'}}) }}
+                <label class="form-check-label">
+                    <i class="fas fa-ban"></i> Blacklisté
+                </label>
+            </div>
+        </div>
+
+        {{ form_rest(editForm) }}
+
+        <div class="form-buttons">
+            <button type="submit" class="btn-submit">
+                <i class="fas fa-save"></i> Enregistrer les modifications
+            </button>
+
+            <a href="{{ path('app_admin_user_index') }}" class="btn-back animate__animated animate__fadeInLeft">
+                <i class="fas fa-arrow-left"></i> Retour
+            </a>
+        </div>
+    </div>
+
+    {{ form_end(editForm) }}
+</div>
+{% endblock %}

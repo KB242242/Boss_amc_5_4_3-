@@ -1,0 +1,209 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contrôle Admin{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+    body {
+        background-color: #1e1e2f;
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0;
+        color: #f5f5f5;
+    }
+
+    .admin-container {
+        max-width: 95%;
+        margin: 3rem auto;
+        padding: 2rem;
+        background-color: #2e2e42;
+        border-radius: 16px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        color: #00ffe0;
+        letter-spacing: 1px;
+    }
+
+    .search-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .search-input {
+        width: 300px;
+        padding: 0.5rem;
+        border: 1px solid #3c3c55;
+        border-radius: 8px;
+        background-color: #1e1e2f;
+        color: #f5f5f5;
+        margin-right: 8px;
+    }
+
+    .search-button, .reset-button {
+        padding: 0.5rem 1rem;
+        margin-left: 5px;
+        background-color: #00ffe0;
+        border: none;
+        border-radius: 8px;
+        color: #000;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .search-button:hover, .reset-button:hover {
+        background-color: #00c6b0;
+    }
+
+    .pagination {
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+
+    .pagination a {
+        margin: 0 4px;
+        padding: 6px 12px;
+        border-radius: 4px;
+        background-color: #00ffe0;
+        color: #000;
+        text-decoration: none;
+    }
+
+    .pagination a:hover {
+        background-color: #00c6b0;
+    }
+
+    .pagination .current {
+        background-color: #00c6b0;
+        color: #fff;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 1px solid #444;
+    }
+
+    th {
+        background-color: #3c3c55;
+        color: #00ffe0;
+        font-weight: bold;
+    }
+
+    tr:hover {
+        background-color: #44445c;
+        transition: background-color 0.3s ease;
+    }
+
+    a {
+        color: #00ffe0;
+        margin-right: 10px;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .btn-create {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 0.6rem 1.4rem;
+        background-color: #00ffe0;
+        color: #000;
+        border-radius: 8px;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: background 0.3s ease;
+    }
+
+    .btn-create:hover {
+        background-color: #00c6b0;
+        color: white;
+    }
+
+    .icon-btn {
+        margin-right: 6px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="admin-container">
+    <h1>Gestion des Utilisateurs</h1>
+
+    <!-- Champ de recherche -->
+    <div class="search-container">
+        <form method="get" action="{{ path('app_admin_user_index') }}">
+            <input type="text" name="search" class="search-input" placeholder="Rechercher un utilisateur..." value="{{ search|default('') }}">
+            <button type="submit" class="search-button">
+                <i class="fa-solid fa-search"></i> Rechercher
+            </button>
+            <a href="{{ path('app_admin_user_index') }}" class="reset-button"></a>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Pseudo</th>
+                <th>Initiales</th>
+                <th>Valid</th>
+                <th>Créé le</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.nom }}</td>
+                <td>{{ user.prenom }}</td>
+                <td>{{ user.pseudo }}</td>
+                <td>{{ user.initiales }}</td>
+                <td>{{ user.valid ? 'Oui' : 'Non' }}</td>
+                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_admin_user_show', {'id': user.id}) }}">
+                        <i class="fa-solid fa-eye icon-btn"></i>Afficher
+                    </a>
+                    <a href="{{ path('app_admin_user_edit', {'id': user.id}) }}">
+                        <i class="fa-solid fa-pen-to-square icon-btn"></i>Modifier
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucun utilisateur trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+        <div class="pagination">            
+            {{ knp_pagination_render(users, '@KnpPaginator/Pagination/bootstrap_v5_pagination.html.twig') }}
+
+        </div>
+
+    <a class="btn-create" href="{{ path('coco') }}">
+        <i class="fa-solid fa-user-plus icon-btn"></i>Créer un nouvel utilisateur
+    </a>
+</div>
+{% endblock %}

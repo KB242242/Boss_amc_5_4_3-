@@ -1,0 +1,21 @@
+ //encours
+
+ Question gemini
+
+ soit le champ de formulaire code avec twig symfony 6
+<div class='col-sm-4'>
+					{{form_label(form.nom, txtLang_texte_Form['txt_1_0'],{'label_attr': {'class':'col-sm3 control-label'}}) }}
+					{{form_widget(form.nom,{'attr':{'class':'form-control'}})}}
+				</div>
+
+comment peut t'on recuperer la valeur saisie avec jQuery genre $("#form_nom").val()
+reponse:
+ ajouter l'attribut 'id': 'form_nom'
+{{form_widget(form.nom,{'attr':{'id': 'form_nom','class':'form-control'}})}}
+
+----------------------------------------------------------------
+!!!Controller les contraintes sur les champs saisis	
+
+On ecrit la doc des modules existant qui vont servir de modele
+
+  

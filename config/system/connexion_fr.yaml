@@ -1,0 +1,35 @@
+#	module 	0-system
+#	section 100-connexion
+#   lang    fr
+#	refNode	0_100_1
+
+message_system:
+    warning_0_0: " *Erreur d'identification "
+    warning_1_0: " *Il vous reste "
+    warning_1_1: " *essais " 
+    warning_2_0: " Le goupe utilisateur "
+    warning_2_1: " n'est pas définit "
+    warning_3_0: " La connexion vous est refusée, un utilisateur est deja connecté! "
+    warning_4_0: " Vous devez changer votre mot de passe!"
+    warning_5_0: ""
+    warning_6_0: ""
+    warning_7_0: " Vous n'êtes pas autorisé a vous connecter. Veuillez contacter l'administrateur "
+    notice_0_0: ""
+    notice_0_1: ""
+    notice_0_2: ""
+
+texte_page:
+    txt_1_0: "Pour votre confort, passer en mode plein écran ( touche F11) "
+    txt_2_0: " Bienvenu sur le site AMC."
+    txt_3_0: "En  cas de problèmes, veuillez contacter l'administrateur du site"
+    txt_4_0: "adresse de l'aministrateur du site"
+    txt_bt_1: "Connexion"
+    txt_bt_2: "Annuler"
+    txt_input_1: "Votre pseudo"
+    txt_input_2: "Votre mot de passe"
+    txt_input_3: "Récupérer le contexte précédent"
+    txt_bt_3: "changer votre mot de passe"
+    txt_input_4: "Votre pseudo"
+    txt_input_5: "Votre nouveau mot de passe"
+    txt_input_6: "Votre ancien mot de passe"
+    txt_input_7: "Votre nouveau mot de passe"

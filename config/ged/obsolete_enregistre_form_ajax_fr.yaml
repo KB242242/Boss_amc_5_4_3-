@@ -1,0 +1,27 @@
+#	module 	20-Ged
+#	section 120-enregistre_document
+#   node     enregistre_prepar_form_ajax
+#   lang    fr
+#	refNode	20_120_1
+
+message_system:
+    notice_0_0:     "je suis la notice 1_xxx"
+    warning_0_0:    ""
+texte_menu:
+    mnu_1:          ""
+    mnu_disconnect: "Déconnexion" 
+texte_page:
+    #titres et commentaires
+    txt_trt_1:  ""
+    #label boutons 
+    #Listes de choix 
+    lst_1_0: ""
+ 
+texte_Form:
+    # Labels du formulaire
+    frm_1_0: "Délais de validité en jours" #placeholder input delais 
+
+
+    #Commandes du formulaire
+    txt_submit: ""
+    txt_cancel: ""

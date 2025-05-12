@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<!-------------------------------------------------------------->
+			<meta charset='utf-8'>
+			<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+			<title>Boss</title>
+		{% block includes %}
+			{% include 'partials/includes.html.twig' %}
+		{% endblock %}
+
+		<!---Boss -->
+*		<script type='text/javascript' language='javascript' src='../BossJs/system/js_utilities.js'></script>
+		<script type='text/javascript' language='javascript' src='../BossJs/system/js_variables_globales_std.js'></script>
+		<script type="text/javascript" language="javascript" src="../BossJs/ged/edit_document.js"></script>
+		<!--Curseur loading -->
+
+		</head>
+		<body>
+			<!-------------------- 1-Variables js--------------------------->
+		<input type="hidden" id="routeRouteur" value="{{path('system_routeur')}}"></>
+		<input type="hidden" id="nodeCourant" value="{{nodeCourant}}"></>
+		<input type="hidden" id="timeOut" value="{{timeOutPage}}"></>
+
+			<!-------------------- 2-Notifications ------------------------->
+		{% if notificationsWarning|length > 0  or notificationsNotice|length > 0%}
+			<div id="notification_msg" style="border:solid ; color:WhiteSmoke; ">											
+					{% for warning in  notificationsWarning %}
+						<p class="mb-0" style=" color: red">-{{warning}}</p>
+					{% endfor %}
+					{% for notice in  notificationsNotice %}
+						<p class="mb-0" style=" color: blue">-{{notice}}</p>
+					{% endfor %}
+		
+			</div>
+		{% endif %}
+		<!-------------------- 3-Loader--------------------------------->
+		<div id='idLoader' class='loader' style='visibility: collapse;'> </div>
+		<!------------ 5-Titres -------------------------->
+		<div class="container">
+				<h2><strong> {{txtLang['pageParent']['txt_1_0']}} </strong></h2>
+				<h3 style="text-align: center;">{{txtLang['pageParent']['txt_2_0']}}</h2>
+		</div>
+	<!----------------------------8-Boutons de cmde -------------------------->
+		<div class="container">
+
+			<!--8-1-Boutons zoneConnex (module)-->
+			<div id="zoneConnex" >
+				{% for cmd in cmdeConnex %}
+					<button id={{cmd[0]}} class="btn-primary" 
+						style="color:{{cmd[3]}};
+						background-color:{{cmd[4]}}; 
+						visibility:visible;
+						margin-bottom:5px;margin-left:5px;border-radius: 10%;">
+					{{cmd[5]}}
+					</button>
+				{% endfor %}
+			</div>
+			<!--8-2-Boutons zoneContextGeneral (section)-->
+			<div id="zoneContextGene">
+				{% for cmd in cmdeContextGene %}
+					<button id={{cmd[0]}} class="btn-primary" 
+						style="color:{{cmd[3]}}; 
+						background-color:{{cmd[4]}}; 
+						margin-bottom:5px; margin-left:5px; border-radius: 10%;">
+					{{cmd[5]}}
+					</button>
+					{% endfor %}
+			</div>
+			<!--8-3-Boutons zoneContextParticulier (selection)-->
+			<div id="zoneContextPart" style="display: none ">
+				{% for cmd in cmdeContextParticulier %}
+					<button id={{cmd[0]}} class="btn-primary" 
+						style="color:{{cmd[3]}}; 
+						background-color:{{cmd[4]}}; 
+						visibility: visible; 
+						margin-bottom:5px; margin-left:5px; border-radius: 10%;">
+					{{cmd[5]}}
+					</button>
+				{% endfor %}
+			</div>
+
+				<!---------- 8-4 iFrame -------------->
+				<iframe src="{{ iframeSrc }}" width="100%" height="500px"></iframe>
+				<!----------------------------------------------------------->
+		</div>
+		</body>
+	</html>

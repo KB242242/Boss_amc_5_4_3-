@@ -1,0 +1,123 @@
+ 
+#	module 	20-GED 
+#	section 120-enregistre_document
+#   node    enregistre_document
+#   lang    fr
+#	refNode	20_120_0
+#   enregistre_document_fr.yaml
+message_system:
+    #--------------------------------------------------
+    #crud edit
+    notice_0_0:     ""
+    notice_0_1:     ""
+    warning_0_0:    ""
+    warning_1_0:    ""
+    warning_2_0:    ""
+    warning_3_0:    ""
+    warning_3_1:    ""
+    #--------------------------------------------------
+    #crud form
+
+
+pageParent:
+    #menu page
+    mnu_1:          ""
+    mnu_disconnect: "Déconnexion" 
+    #titres et commentaire
+    txt_1_0:        "Gestion Electronique des Documents"
+    txt_2_0:        "Enregistrer des fichiers dans la base"
+    txt_3_0:        "Selectionner les fichiers a enregistrer."
+    txt_4_0:        "Titre"
+    txt_5_0:        "Extension du fichier"
+    txt_6_0:        "Type de document"
+    txt_7_0:        "Standard 0" 
+    txt_8_0:        "Standard 1" 
+    txt_9_0:        "Standard 2" 
+    txt_10_0:       ""
+    txt_11_0:       "" 
+    txt_12_0:       ""
+    txt_13_0:       ""
+    txt_14_0:       "Mots clés"
+    txt_14_1:       " Ajouter des mots clés de recherche"
+    txt_20_0:       "Classement" 
+    txt_21_0:       "Remarque"
+    txt_22_0:       "Votre texte ici..."  
+
+    #commandes 
+        #outillage
+    txt_bt_1_1:       ""
+        #commandes 
+            #8-1-cmdeConnexPage 
+    txt_bt_2_1:       ""
+             #8-2-cmdeContextGenePage 
+    txt_bt_3_1:       ""
+    txt_bt_3_2:       "Réserver des documents"
+    txt_bt_3_3:       "Rechercher un document"
+    txt_bt_3_4:       "Administrer les documents"
+    txt_bt_3_5:       "Quitter GED"
+           #8-3-cmdeFormPage
+    txt_bt_4_1:       "Enregistrer"
+    txt_bt_5_1:       "Supprimer les selections"
+
+    #label input
+    txt_input_1:       ""
+pageFormulaire:
+    #titre & sous titre, commentaires  formulaire
+    txt_trt_1:        "Formulaire de définition des paramètres du document"
+    txt_trt_2:        ""  
+    txt_comm_0:       ""
+    txt_comm_1:       ""
+
+    # Labels du formulaire
+        #titre 'help'=>  $this->langue['pageFormulaire']['frm_help_not_1_0']]
+    frm_1_0: "Titre du document"
+    frm_help_warn_1_0: "*****"
+    frm_help_not_1_0: "*****"
+   
+    frm_2_0: "Extension"
+    frm_help_warn_2_0: "*****"
+    frm_help_not_2_0: "*****"
+
+    frm_3_0: "Gisement"
+    frm_help_warn_3_0: "*****"
+    frm_help_not_3_0: "*****"
+
+    frm_4_0: "Dossier"
+    frm_help_warn_4_0: "*****"
+    frm_help_not_4_0: "*****"
+
+    frm_4_1: "Dossier sélectionné"
+    frm_help_warn_4_1: "*****"
+    frm_help_not_4_1: "*****"
+
+    frm_5_0: "Version"
+    frm_help_warn_5_0: "*****"
+    frm_help_not_5_0: "*****"
+
+    frm_6_0: "Durée de validité du document en jour"
+    frm_help_warn_6_0: "*****"
+    frm_help_not_6_0: "*****"
+
+    frm_7_0: "Mots clés"
+    frm_help_warn_7_0: "*****"
+    frm_help_not_7_0: "*****"
+
+ 
+    frm_8_0: "Remarques particulières"
+    frm_help_warn_8_0: "*****"
+    frm_help_not_8_0: "*****"
+    
+    frm_obligatoire: "Obligatoire"
+    #Commandes du formulaire
+ 
+    txt_submit: "Enregistrer"
+
+    txt_cancel: "Annuler"
+cols_dataTable:
+    #columns datatable
+    txt_col_1:      "Ref"
+    txt_col_2:      "Date reserv."
+    txt_col_3:      "Titre"
+    txt_col_4:      "Type"
+    txt_col_5:      "Remarques"      
+   
